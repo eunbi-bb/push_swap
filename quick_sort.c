@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	swap(int &num1, int &num2)
+void	swap(int num1, int num2)
 {
 	int	tmp;
 
@@ -20,7 +20,7 @@ void	q_sort(int *numbers, int left, int right)
 	r_hold = right;
 
 	median = (left + right) / 2;
-	swap(numbers[left], numbers[median]);
+	swap(&numbers[left], &numbers[median]);
 	while (left < right)
 	{
 		while ((numbers[right] >=  pivot) && (left < right))
@@ -47,7 +47,7 @@ void	q_sort(int *numbers, int left, int right)
 		q_sort(numbers, pivot++, right);
 }
 
-void	QuickSort(int numbers[], int array_size)
+void	quicksort(int numbers[], int array_size)
 {
 	q_sort(numbers, 0, array_size - 1);
 }

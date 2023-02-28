@@ -5,8 +5,8 @@
 typedef struct s_node
 {
 	int		data;
-	t_node	*prev;
-	t_node	*next;
+	struct s_node	*prev;
+	struct s_node	*next;
 } t_node;
 
 typedef	struct	s_stack
@@ -16,6 +16,11 @@ typedef	struct	s_stack
 	int		size_a;
 	int		size_b;
 } t_stack;
+
+# define ASCENDING 0
+# define DESCENDING 1
+# define OPT 0
+# define STACK 1
 
 //Operations
 void	sa(t_stack *stack);
@@ -32,5 +37,17 @@ void	rr(t_stack *stack);
 void	rra(t_stack *stack);
 void	rrb(t_stack *stack);
 void	rrr(t_stack *stack);
-
-//Quick sort
+//push_swap.c
+void	push_swap(char **argv);
+t_node	*new_node(int data);
+void	add_after(t_node *before, t_node *new_node);
+//sort.c
+void	sort_aaa(t_stack *s);
+int		sort(t_stack *s, int size);
+int		push(t_stack *s, int len, int operation);
+//push_swap_utils.c
+void	error_free(int *stack);
+int		pusw_strlen(char **argv);
+int		pusw_atoi(char *str, int *stack);
+int		sort_check(int *stack, int size, int order);
+void	duplication_check(int *stack, int size);
