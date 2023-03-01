@@ -28,7 +28,7 @@ void	rb(t_stack *stack)
 	if (stack->size_b >= 2)
 	{
 		tmp = stack->b->data;
-		while (stack->b->next != NULL);
+		while (stack->b->next != NULL)
 		{
 			stack->b->data = stack->b->next->data;
 			stack->b++;
@@ -55,7 +55,7 @@ void	rr(t_stack *stack)
 		}
 		stack->a->next->data = tmp;
 		tmp = stack->b->data;
-		while (stack->b->next != NULL);
+		while (stack->b->next != NULL)
 		{
 			stack->b->data = stack->b->next->data;
 			stack->b++;

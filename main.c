@@ -67,6 +67,32 @@ void	add_after(t_node *before, t_node *new_node)
 	}
 }
 
+void	del_node(t_node **head, t_node **tail, t_node *p)
+{
+	if (*head == NULL || p == NULL)
+		return ;
+	if (p == *head)
+	{
+		*head = p->next;
+		if (*head != NULL)
+			(*head)->prev = NULL;
+		if (*head == NULL)
+			*tail = NULL;
+	}
+	else if (p == *tail)
+	{
+		*tail = p->prev;
+		if (*tail != NULL)
+			(*tail)->next = NULL;
+	}
+	else
+	{
+		p->prev->next = p->next;
+		p->next->prev = p->prev;
+	}
+	free(p);
+}
+
 int	main(void)
 {
 	t_stack	*stack;
@@ -87,18 +113,19 @@ int	main(void)
 	stack->b = new_node(5);
 	add_after(stack->b, new_node(4));
 
-	sa(stack);
+	pa(stack);
+	pb(stack);
 	printf("%d %d\n", stack->a->data, stack->a->next->data);
+	printf("%d %d\n", stack->b->data, stack->b->next->data);
 	return(0);
 }
-	// sb(stack);
-	// ss(stack);
 
-	// pa(stack);
-	// pb(stack);
-	
+	//sa(stack);
+	//sb(stack);
+	//ss(stack);
 	// ra(stack);
 	// rb(stack);
+	
 	// rr(stack);
 
 	// rra(stack);
