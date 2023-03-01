@@ -76,7 +76,7 @@ void	del_node(t_node **head, t_node **tail, t_node *p)
 		*head = p->next;
 		if (*head != NULL)
 			(*head)->prev = NULL;
-		if (*head == NULL)
+		else
 			*tail = NULL;
 	}
 	else if (p == *tail)
@@ -84,6 +84,8 @@ void	del_node(t_node **head, t_node **tail, t_node *p)
 		*tail = p->prev;
 		if (*tail != NULL)
 			(*tail)->next = NULL;
+		else
+			*head = NULL;
 	}
 	else
 	{
@@ -98,33 +100,35 @@ int	main(void)
 	t_stack	*stack;
 	int		size;
 
-	size = 2;
+	size = 3;
 	stack = (t_stack *)malloc(sizeof(t_stack));
 	if (!stack)
 		return (0);
 	stack->a = NULL;
 	stack->b = NULL;
-	stack->size_a = 2;
-	stack->size_b = 2;
+	stack->size_a = 3;
+	stack->size_b = 3;
 
 	stack->a = new_node(3);
 	add_after(stack->a, new_node(2));
+	add_after(stack->a, new_node(5));
 	
-	stack->b = new_node(5);
-	add_after(stack->b, new_node(4));
+	stack->b = new_node(8);
+	add_after(stack->b, new_node(9));
+	add_after(stack->b, new_node(7));
 
-	pa(stack);
-	pb(stack);
-	printf("%d %d\n", stack->a->data, stack->a->next->data);
-	printf("%d %d\n", stack->b->data, stack->b->next->data);
+	ra(stack);
+	rb(stack);
+	printf("%d %d %d\n", stack->a->data, stack->a->next->data, stack->a->next->next->data);
+	printf("%d %d %d\n", stack->b->data, stack->b->next->data, stack->a->next->next->data);
 	return(0);
 }
 
 	//sa(stack);
 	//sb(stack);
 	//ss(stack);
-	// ra(stack);
-	// rb(stack);
+	// pa(stack);
+	// pb(stack);
 	
 	// rr(stack);
 

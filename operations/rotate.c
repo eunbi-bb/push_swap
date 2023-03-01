@@ -5,38 +5,44 @@
 void	ra(t_stack *stack)
 {
 	int	tmp;
+	t_node	*current;
 
 	if (stack->size_a >= 2)
 	{
 		tmp = stack->a->data;
-		while (stack->a->next != NULL)
+		current = stack->a;
+		while (current->next != NULL)
 		{
-			stack->a->data = stack->a->next->data;
-			stack->a++;
+			current->data = current->next->data;
+			current = current->next;
 		}
-		stack->a->next->data = tmp;
+		current->data = tmp;
 		printf("ra\n");
 	}
 	else
 		printf("ra: Less than 2 numbers in stack A.\n");
 }
+		//printf("stack->a : %d | stack->a->next : %d\n", stack->a->data, stack->a->next->data);
 /*rotate b : Shift up all elements of stack b by 1.*/
 void	rb(t_stack *stack)
 {
 	int	tmp;
+	t_node	*current;
 
 	if (stack->size_b >= 2)
 	{
 		tmp = stack->b->data;
-		while (stack->b->next != NULL)
+		current = stack->b;
+		while (current->next != NULL)
 		{
-			stack->b->data = stack->b->next->data;
-			stack->b++;
+			current->data = current->next->data;
+			current = current->next;
 		}
-		stack->b->next->data = tmp;
+		current->data = tmp;
+		printf("rb\n");
 	}
 	else
-		printf("rra: Less than 2 numbers in stack A.\n");
+		printf("rb: Less than 2 numbers in stack B.\n");
 
 }
 
@@ -51,17 +57,17 @@ void	rr(t_stack *stack)
 		while (stack->a->next != NULL)
 		{
 			stack->a->data = stack->a->next->data;
-			stack->a++;
+			stack->a = stack->a->next;
 		}
-		stack->a->next->data = tmp;
+		stack->a->data = tmp;
 		tmp = stack->b->data;
 		while (stack->b->next != NULL)
 		{
 			stack->b->data = stack->b->next->data;
-			stack->b++;
+			stack->b = stack->b->next;
 		}
-		stack->b->next->data = tmp;
+		stack->b->data = tmp;
 	}
 	else
-		printf("rrb: Less than 2 numbers in stack B.\n");
+		printf("rr: Less than 2 numbers in stacks.\n");
 }
