@@ -117,10 +117,12 @@ int	main(void)
 	add_after(stack->b, new_node(9));
 	add_after(stack->b, new_node(7));
 
-	ra(stack);
-	rb(stack);
+	//rra(stack);
+	//rrb(stack);
+	rrr(stack);
+
 	printf("%d %d %d\n", stack->a->data, stack->a->next->data, stack->a->next->next->data);
-	printf("%d %d %d\n", stack->b->data, stack->b->next->data, stack->a->next->next->data);
+	printf("%d %d %d\n", stack->b->data, stack->b->next->data, stack->b->next->next->data);
 	return(0);
 }
 
@@ -129,9 +131,7 @@ int	main(void)
 	//ss(stack);
 	// pa(stack);
 	// pb(stack);
-	
+	//ra(stack);
+	//rb(stack);
 	// rr(stack);
-
-	// rra(stack);
-	// rrb(stack);
-	// rrr(stack);
+	

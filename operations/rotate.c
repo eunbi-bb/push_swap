@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   rotate.c                                           :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: eucho <eucho@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2023/03/01 15:19:41 by eucho         #+#    #+#                 */
+/*   Updated: 2023/03/01 15:19:44 by eucho         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 #include <stdio.h>
 
@@ -49,24 +61,28 @@ void	rb(t_stack *stack)
 /*ra and rb at the same time.*/
 void	rr(t_stack *stack)
 {
-	int	tmp;
+	int		tmp;
+	t_node	*current;
 
 	if (stack->size_a >= 2 && stack->size_b >= 2)
 	{
 		tmp = stack->a->data;
-		while (stack->a->next != NULL)
+		current = stack->a;
+		while (current->next != NULL)
 		{
-			stack->a->data = stack->a->next->data;
-			stack->a = stack->a->next;
+			current->data = current->next->data;
+			current = current->next;
 		}
-		stack->a->data = tmp;
+		current->data = tmp;
 		tmp = stack->b->data;
-		while (stack->b->next != NULL)
+		current = stack->b;
+		while (current->next != NULL)
 		{
-			stack->b->data = stack->b->next->data;
-			stack->b = stack->b->next;
+			current->data = current->next->data;
+			current = current->next;
 		}
-		stack->b->data = tmp;
+		current->data = tmp;
+		printf("rr\n");
 	}
 	else
 		printf("rr: Less than 2 numbers in stacks.\n");
