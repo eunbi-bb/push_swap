@@ -27,20 +27,7 @@ void	add_after(t_node *before, t_node *new_node)
 	}
 	else if (before == NULL)
 	{
-		new_node->next = head;void	sa(t_stack *stack)
-{
-	int	tmp;
-
-	if (stack->size_a >= 2)
-	{
-		tmp = stack->a->data;
-		stack->a->data = stack->a->next->data;
-		stack->a->next->data = tmp;
-		printf("sa\n");
-	}
-	else
-		printf("sa: Less than 2 numbers in stack A.\n");
-}
+		new_node->next = head;
 		tail = new_node;
 	}
 	else
