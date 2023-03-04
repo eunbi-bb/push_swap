@@ -6,11 +6,11 @@
 /*   By: eucho <eucho@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/01 15:19:56 by eucho         #+#    #+#                 */
-/*   Updated: 2023/03/01 15:35:09 by eucho         ########   odam.nl         */
+/*   Updated: 2023/03/04 18:47:24 by eunbi         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 #include <stdio.h>
 
 t_node	*to_tail(t_node *node)

@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../../push_swap.h"
 #include <limits.h>
 #include <stdio.h>
 
@@ -119,6 +119,7 @@ int	main(void)
 
 	pa(stack);
 	pb(stack);
+	system("leaks a.out");
 
 	printf("%d %d %d\n", stack->a->data, stack->a->next->data, stack->a->next->next->data);
 	printf("%d %d %d\n", stack->b->data, stack->b->next->data, stack->b->next->next->data);

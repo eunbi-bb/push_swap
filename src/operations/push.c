@@ -6,11 +6,11 @@
 /*   By: eucho <eucho@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/01 15:20:02 by eucho         #+#    #+#                 */
-/*   Updated: 2023/03/01 15:20:06 by eucho         ########   odam.nl         */
+/*   Updated: 2023/03/04 18:47:20 by eunbi         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 #include <stdio.h>
 /*push a : Take the first element at the top of b 
 		and put it at the top of a.*/

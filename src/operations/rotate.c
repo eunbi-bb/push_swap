@@ -6,11 +6,11 @@
 /*   By: eucho <eucho@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/01 15:19:41 by eucho         #+#    #+#                 */
-/*   Updated: 2023/03/01 15:19:44 by eucho         ########   odam.nl         */
+/*   Updated: 2023/03/04 18:47:28 by eunbi         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 #include <stdio.h>
 
 /*rotate a : Shift up all elements of stack a by 1.*/
