@@ -49,9 +49,9 @@ int		push(t_stack *s, int len, int operation);
 //push_swap_utils.c
 void	error_free(int *stack);
 int		pusw_strlen(char **argv);
-int		pusw_atoi(char *str, int *stack);
-int		sort_check(int *stack, int size, int order);
-void	duplication_check(int *stack, int size);
+int		pusw_atoi(char *str, t_node *stack);
+int		sort_check(t_node *stack, int size, int order);
+void	duplication_check(t_node *stack);
 
 t_node	*lst_front(t_node *lst);
 t_node	*lst_last(t_node *lst);

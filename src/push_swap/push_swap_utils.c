@@ -20,7 +20,7 @@ int	pusw_strlen(char **argv)
 	return (i);
 }
 
-int	pusw_atoi(char *str, int *stack)
+int	pusw_atoi(char *str, t_node *stack)
 {
 	unsigned int	i;
 	long long		num;
@@ -39,7 +39,7 @@ int	pusw_atoi(char *str, int *stack)
 	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
-				error_free(stack);
+			error_free(stack);
 		num = (str[i] - '0') + (num * 10);
 		i++;
 	}
@@ -48,7 +48,7 @@ int	pusw_atoi(char *str, int *stack)
 	return (sign *num);
 }
 
-int	sort_check(int *stack, int size, int order)
+int	sort_check(t_node *stack, int size, int order)
 {
 	int	i;
 
@@ -76,22 +76,24 @@ int	sort_check(int *stack, int size, int order)
 	}
 }
 
-void	duplication_check(int *stack, int size)
+void	duplication_check(t_node *stack)
 {
-	int	i;
-	int j;
+	t_node *current;
+	t_node *runner;
 
-	i = 0;
-	j = 1;
-	while (i < size)
+	current = stack;
+    while (current != NULL)
 	{
-		while (j < size)
+        runner = current->next;
+        while (runner != NULL)
 		{
-			if (stack[i] == stack[j])
+            if (runner->data == current->data)
+			{
 				error_free(stack);
-			j++;
-		}
-		i++;
-		j = i + 1;
-	}
+				return;
+            }
+            runner = runner->next;
+        }
+        current = current->next;
+    }
 }
