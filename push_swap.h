@@ -50,8 +50,10 @@ int		push(t_stack *s, int len, int operation);
 void	error_free(int *stack);
 int		pusw_strlen(char **argv);
 int		pusw_atoi(char *str, t_node *stack);
-int		sort_check(t_node *stack, int size, int order);
+int		sort_check(t_stack *stack, int size, int order);
 void	duplication_check(t_node *stack);
+//quick_sort.c
+void	quicksort(t_stack *s);
 
 t_node	*lst_front(t_node *lst);
 t_node	*lst_last(t_node *lst);

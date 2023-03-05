@@ -1,54 +1,92 @@
 #include "../../push_swap.h"
 
-void	swap(int num1, int num2)
+void	swap(int *num1, int *num2)
 {
 	int	tmp;
 
-	tmp = num1;
-	num1 = num2;
-	num2 = tmp;
+	tmp = *num1;
+	*num1 = *num2;
+	*num2 = tmp;
 }
 
-void	q_sort(t_stack *numbers, int left, int right)
+t_node* get_median(t_node* start, t_node* end)
 {
-	int	pivot;
-	int	l_hold;
-	int	r_hold;
-	int	median;
+	t_node* mid;
+	t_node* n;
+	int i;
+	int j;
 
-	l_hold = left;
-	r_hold = right;
-
-	pivot = numbers[left];
-	median = (left + right) / 2;
-	swap(numbers[left], numbers[median]);
-	while (left < right)
+	mid = start;
+    n = start;
+    i = 0;
+    while (n != end)
 	{
-		while ((numbers[right] >= pivot) && (left < right))
-			right--;
-		if (left != right)
+        i++;
+        n = n->next;
+    }
+    i = i / 2;
+    j = 0;
+    while (j < i)
+	{
+        mid = mid->next;
+        j++;
+    }
+    return (mid);
+}
+/* Considers last element as pivot, places the
+pivot element at its correct position in sorted array,
+and places all smaller (smaller than pivot) to left
+of pivot and all greater elements to right of pivot */
+t_node* partition(t_node* start, t_node* end)
+{
+	t_node* pivot;
+	t_node* i;
+	t_node* j;
+	int pivot_value;
+
+    pivot_value = end->data;
+    i = start->prev;
+    j = start;
+    pivot = get_median(start, end);
+    swap(&(pivot->data), &(end->data));
+    while (j != end)
+	{
+        if (j->data <= pivot_value)
 		{
-			numbers[left] = numbers[right];
-		}
-		while ((numbers[left] <= pivot) && (left < right))
-			left++;
-		if (left != right)
-		{
-			numbers[right] = numbers[left];
-			right--;
-		}
-	}
-	numbers[left] = pivot;
-	pivot = left;
-	left = l_hold;
-	right = r_hold;
-	if (left < pivot)
-		q_sort(numbers, left, pivot - 1);
-	if (right > pivot)
-		q_sort(numbers, pivot++, right);
+			if (i == NULL)
+				i = start;
+			else
+				i = i->next;
+            swap(&(i->data), &(j->data));
+        }
+        j = j->next;
+    }
+    if (i == NULL)
+		i = start;
+	else
+		i = i->next;
+    swap(&(i->data), &(end->data));
+    return (i);
 }
 
-void	quicksort(t_stack *s, int array_size)
+void q_sort(t_node* start, t_node* end) 
 {
-	q_sort(s, array_size - 1);
+	t_node *pivot;
+
+    if (end != NULL && start != end && start != end->next) 
+	{
+        pivot = partition(start, end);
+        q_sort(start, pivot->prev);
+        q_sort(pivot->next, end);
+    }
+}
+
+void	quicksort(t_stack *s)
+{
+	t_node	*start;
+	t_node	*end;
+
+	start = lst_front(s->a);
+	end = lst_last(s->a);
+	q_sort(start, end);
 }

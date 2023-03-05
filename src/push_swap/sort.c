@@ -61,14 +61,14 @@ void	sort_aaa(t_stack *s)
 
 int	sort(t_stack *s, int size)
 {
-	if (sort_check(s->a, s->size_a, ASCENDING) == 0)
+	if (sort_check(s, s->size_a, ASCENDING) == 0)
 	{
 		if (size == 2)
 			sa(s);
 		else if (size == 3)
 			sort_aaa(s);
 		else
-			quicksort(s, size);
+			quicksort(s);
 	}
 	return (0);
 }

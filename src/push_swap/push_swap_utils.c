@@ -50,27 +50,27 @@ int	pusw_atoi(char *str, t_node *stack)
 
 int	sort_check(t_node *stack, int size, int order)
 {
-	int	i;
+	t_node	*tmp;
 
-	i = 1;
+	tmp = stack->a;
 	if (order == ASCENDING)
 	{
-		while(i < size)
+		while(tmp->next != NULL)
 		{
-			if (stack[i - 1] > stack[i])
+			if (tmp->data > tmp->next->data)
 				return (0);
-			i++;
+			tmp = tmp->next;
 		}
 		ft_printf ("The arguments are in ascending order.\n");
 		return (1);
 	}
 	else
 	{
-		while (i < size)
+		while (tmp->next != NULL)
 		{
-			if (stack[i - 1] < stack[i])
+			if (tmp->data < tmp->next->data)
 				return (0);
-			i++;
+			tmp = tmp->next;
 		}
 		return (1);
 	}
