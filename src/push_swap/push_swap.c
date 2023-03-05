@@ -11,7 +11,7 @@ void	push_swap(char **argv)
 	stack = malloc(sizeof(t_node));
 	while (i < size)
 	{
-		add_after(stack->a, new_node(*argv[i]));
+		add_after(stack->a, new_node(pusw_atoi(argv[i], stack->a)));
 		i++;
 		stack->a = stack->a->next;
 	}

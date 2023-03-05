@@ -1,6 +1,6 @@
 #include "../../push_swap.h"
 
-void	error_free(int *stack)
+void	error_free(t_node *stack)
 {
 	ft_printf("ERROR\n");
 	free(stack);
@@ -48,7 +48,7 @@ int	pusw_atoi(char *str, t_node *stack)
 	return (sign *num);
 }
 
-int	sort_check(t_node *stack, int size, int order)
+int	sort_check(t_stack *stack, int order)
 {
 	t_node	*tmp;
 

@@ -61,7 +61,7 @@ void	sort_aaa(t_stack *s)
 
 int	sort(t_stack *s, int size)
 {
-	if (sort_check(s, s->size_a, ASCENDING) == 0)
+	if (sort_check(s, ASCENDING) == 0)
 	{
 		if (size == 2)
 			sa(s);

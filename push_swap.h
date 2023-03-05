@@ -47,10 +47,10 @@ void	sort_aaa(t_stack *s);
 int		sort(t_stack *s, int size);
 int		push(t_stack *s, int len, int operation);
 //push_swap_utils.c
-void	error_free(int *stack);
+void	error_free(t_node *stack);
 int		pusw_strlen(char **argv);
 int		pusw_atoi(char *str, t_node *stack);
-int		sort_check(t_stack *stack, int size, int order);
+int		sort_check(t_stack *stack, int order);
 void	duplication_check(t_node *stack);
 //quick_sort.c
 void	quicksort(t_stack *s);
