@@ -26,7 +26,8 @@ all: $(NAME)
 $(NAME):	$(OBJ) $(OPER_OBJ) $(OBJF)
 			@make -C $(LIBFT)
 			@cp libft/libft.a .
-			@$(CC) $(CFLAGS) $(OBJ) $(OPER_OBJ) -I inc libft.a -o $(NAME)
+			@mv libft.a $(NAME)
+			@$(CC) $(CFLAGS) $(OBJ) $(OPER_OBJ) libft/libft.a -o $(NAME)
 			@echo "- push_swap is compiled -"
 
 $(OBJ_DIR)%.o:$(SRC_DIR)%.c $(HEADER)| $(OBJF)
@@ -36,6 +37,7 @@ $(OBJF):
 		@mkdir -p $(OBJ_DIR)
 		@mkdir -p $(OBJ_DIR)$(PUSH_SWAP_DIR)
 		@mkdir -p $(OBJ_DIR)$(OPER_DIR)
+		@touch $(OBJF)
 
 clean:
 		@rm -rf $(OBJ_DIR)
