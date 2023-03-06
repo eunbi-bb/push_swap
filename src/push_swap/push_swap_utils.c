@@ -81,6 +81,8 @@ void	duplication_check(t_node *stack)
 	t_node *current;
 	t_node *runner;
 
+	if (stack == NULL)
+		return ;
 	current = stack;
     while (current != NULL)
 	{
