@@ -1,5 +1,11 @@
 #include "../../push_swap.h"
 
+void	quick_sort_3(t_stack *stack)
+{
+	if (stack->size_a == 3)
+		sort_aaa(stack);
+}
+
 void	swap(int *num1, int *num2)
 {
 	int	tmp;
@@ -9,10 +15,10 @@ void	swap(int *num1, int *num2)
 	*num2 = tmp;
 }
 
-t_node* get_median(t_node* start, t_node* end)
+t_node* get_median(t_node *start, t_node *end)
 {
-	t_node* mid;
-	t_node* n;
+	t_node *mid;
+	t_node *n;
 	int i;
 	int j;
 
@@ -42,7 +48,7 @@ t_node* partition(t_node* start, t_node* end)
 	t_node* pivot;
 	t_node* i;
 	t_node* j;
-	int pivot_value;
+	int 	pivot_value;
 
     pivot_value = end->data;
     i = start->prev;

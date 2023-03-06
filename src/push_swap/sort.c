@@ -1,28 +1,28 @@
 #include "../../push_swap.h"
 
-void	sort_tmp(int *tmp_stack, int size)
-{
-	int	i;
-	int	j;
-	int	tmp;
+// void	sort_tmp(int *tmp_stack, int size)
+// {
+// 	int	i;
+// 	int	j;
+// 	int	tmp;
 
-	i = 0;
-	while (i < size)
-	{
-		j = i + 1;
-		while (j < size)
-		{
-			if (tmp_stack[i] > tmp_stack[j])
-			{
-				tmp = tmp_stack[i];
-				tmp_stack[i] = tmp_stack[j];
-				tmp_stack[j] = tmp;
-			}
-			j++;
-		}
-		i++;
-	}
-}
+// 	i = 0;
+// 	while (i < size)
+// 	{
+// 		j = i + 1;
+// 		while (j < size)
+// 		{
+// 			if (tmp_stack[i] > tmp_stack[j])
+// 			{
+// 				tmp = tmp_stack[i];
+// 				tmp_stack[i] = tmp_stack[j];
+// 				tmp_stack[j] = tmp;
+// 			}
+// 			j++;
+// 		}
+// 		i++;
+// 	}
+// }
 /*1. 1 3 2
   2. 2 1 3
   3. 2 3 1
@@ -56,6 +56,36 @@ void	sort_aaa(t_stack *s)
 	{
 		sa(s);
 		rra(s);
+	}
+}
+
+void	sort_bbb(t_stack *s)
+{
+	if (s->b->data < s->b->next->data
+		&& s->b->data < s->b->next->next->data
+		&& s->b->next->data > s->b->next->next->data)
+	{
+		sb(s);
+		rb(s);
+	}
+	if (s->b->data > s->b->next->data
+		&& s->b->data < s->b->next->next->data
+		&& s->b->next->data < s->b->next->next->data)
+		sb(s);
+	if (s->b->data < s->b->next->data
+		&& s->b->data > s->b->next->next->data
+		&& s->b->next->data > s->b->next->next->data)
+		rrb(s);
+	if (s->b->data > s->b->next->data
+		&& s->b->data > s->b->next->next->data
+		&& s->b->next->data < s->b->next->next->data)
+		rb(s);
+	if (s->b->data > s->b->next->data
+		&& s->b->data > s->b->next->next->data
+		&& s->b->next->data > s->b->next->next->data)
+	{
+		sb(s);
+		rrb(s);
 	}
 }
 
