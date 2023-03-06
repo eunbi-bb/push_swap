@@ -21,6 +21,9 @@ OPER_OBJ	=	$(addprefix $(OBJ_DIR), $(OPER_FILES:.c=.o))
 
 OBJF =	.cache_exists
 
+CYAN_B		=	\033[1;96m
+CYAN		=	\033[0;96m
+
 all: $(NAME)
 
 $(NAME):	$(OBJ) $(OPER_OBJ) $(OBJF)
@@ -28,7 +31,7 @@ $(NAME):	$(OBJ) $(OPER_OBJ) $(OBJF)
 			@cp libft/libft.a .
 			@mv libft.a $(NAME)
 			@$(CC) $(CFLAGS) $(OBJ) $(OPER_OBJ) libft/libft.a -o $(NAME)
-			@echo "- push_swap is compiled -"
+			@echo "$(CYAN_B)- push_swap is compiled -"
 
 $(OBJ_DIR)%.o:$(SRC_DIR)%.c $(HEADER)| $(OBJF)
 			@$(CC) $(CFLAGS) -c $< -o $@
@@ -43,10 +46,12 @@ clean:
 		@rm -rf $(OBJ_DIR)
 		@make clean -C $(LIBFT)
 		@rm -f $(OBJF)
+		@echo "$(CYAN)- Object files are cleaned -"
 
 fclean: clean
 		@rm -f $(NAME)
 		@make fclean -C $(LIBFT)
+		@echo "$(CYAN)- Executable files are cleaned -"
 
 re:	fclean all
 

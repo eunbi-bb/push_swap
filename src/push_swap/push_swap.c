@@ -32,13 +32,23 @@ void	push_swap(char **argv)
 	}
 	stack->size_a = size;
 	duplication_check(stack->a);
-	printf("%d ", stack->a->data);
-	printf("%d ", stack->a->next->data);
-	printf("%d\n", stack->a->next->next->data);
+	printf("BEFORE SORTING\n");
+	t_node *temp = stack->a;
+	while (temp != NULL)
+	{
+		printf("%d ", temp->data);
+		temp = temp->next;
+	}
+	printf("\n");
 	sort(stack, size);
-	printf("%d ", stack->a->data);
-	printf("%d ", stack->a->next->data);
-	printf("%d\n", stack->a->next->next->data);
+	printf("AFTER SORTING\n");
+	temp = stack->a;
+	while (temp != NULL)
+	{
+		printf("%d ", temp->data);
+		temp = temp->next;
+	}
+	printf("\n");
 	free(stack->a);
 }
 

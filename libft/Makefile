@@ -24,11 +24,14 @@ OBJ_GNL = $(addprefix $(OBJ_DIR), $(SRC_GNL:.c=.o))
 
 OBJF	=	.cache_exists
 
+YELLOW_B	=	\033[1;93m
+YELLOW		=	\033[0;93m
+
 all: $(NAME)
 
 $(NAME): $(OBJ_LIBFT) $(OBJ_PRINTF) $(OBJ_GNL)
 		@ar -rcs $(NAME) $(OBJ_LIBFT) $(OBJ_PRINTF) $(OBJ_GNL)
-		@echo "- Libft is compiled -"
+		@echo "$(YELLOW_B)- Libft is compiled -"
 
 $(OBJ_DIR)%.o : %.c $(HEADER)| $(OBJF)
 			@$(CC) $(CFLAGS) -c $< -o $@
@@ -37,17 +40,14 @@ $(OBJF):
 	@mkdir -p $(OBJ_DIR)
 
 clean:
-	@rm -f *.o
 	@rm -rf $(OBJ_DIR)
-	@echo "- Object files are cleaned -"
-
+	@rm -f $(OBJF)
+	@echo "$(YELLOW)- Object files are cleaned -"
 
 fclean: clean
 	@rm -f $(NAME)
-	@rm -rf $(OBJ_DIR)
-	@echo "- Executable files are cleaned -"
+	@echo "$(YELLOW)- Executable files are cleaned -"
 
 re: fclean all
-	@echo "- cleaned and rebuilt -"
 
-.PHONY: bonus all clean fclean re
+.PHONY: all clean fclean re
