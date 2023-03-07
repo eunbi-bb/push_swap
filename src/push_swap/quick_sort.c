@@ -39,7 +39,7 @@ t_node* get_median(t_node *start, t_node *end)
     }
     i = i / 2;
     j = 0;
-    while (j <= i)
+    while (j < i)
 	{
         mid = mid->next;
         j++;
@@ -57,25 +57,44 @@ t_node* partition(t_stack *stack, t_node* start, t_node* end)
 	t_node* j;
 	int 	pivot_value;
 
-    pivot_value = end->data;
-    i = start->prev;
-    j = start;
 	// if ((stack->size_a >= 1 && stack->size_a <= 3) || (stack->size_b >= 1 && stack->size_b <= 3))
 	// 	quick_sort_3(stack);
     pivot = get_median(start, end);
-    swap(&(pivot->data), &(end->data));
-    while (j != end)
+	t_node *temp = stack->a;
+	while (temp != NULL)
 	{
-        if (j->data <= pivot_value)
-		{
-			if (i == NULL)
-				i = start;
-			else
-				i = i->next;
-			// if (j->data <= pivot_value)
-			// 	pb(stack);
-            swap(&(i->data), &(j->data));
-        }
+		printf("%d ", temp->data);
+		temp = temp->next;
+	}
+	printf("\n");
+	printf("pivot : %d, start : %d\n", pivot->data, start->data);
+    swap(&(pivot->data), &(start->data));
+	printf("pivot : %d, start : %d\n\n", pivot->data, start->data);
+	temp = stack->a;
+	while (temp != NULL)
+	{
+		printf("%d ", temp->data);
+		temp = temp->next;
+	}
+	printf("\n");
+    pivot_value = pivot->data;
+    i = start->prev;
+    j = start;
+    while (j->data <= pivot_value)
+	{
+        // if (j->data <= pivot_value)
+		// {
+			// if (i == NULL)
+			// 	i = start;
+			// else
+			// 	i = i->next;
+			// // if (j->data <= pivot_value)
+			// // 	pb(stack);
+            // swap(&(i->data), &(j->data));
+			pb(stack);
+        // }
+		printf("j = %d\n", j->data);
+		printf("pivot = %d\n", pivot->data);
         j = j->next;
     }
 	//printf("stack->b : %d\n", stack->b->data);
@@ -84,13 +103,13 @@ t_node* partition(t_stack *stack, t_node* start, t_node* end)
 	else
 		i = i->next;
     swap(&(i->data), &(end->data));
-	t_node *temp = stack->a;
-	while (temp != NULL)
-	{
-		printf("%d ", temp->data);
-		temp = temp->next;
-	}
-	printf("\n");
+	// t_node *temp = stack->a;
+	// while (temp != NULL)
+	// {
+	// 	printf("%d ", temp->data);
+	// 	temp = temp->next;
+	// }
+	// printf("\n");
     return (i);
 }
 
