@@ -82,7 +82,7 @@ t_node* partition(t_stack *stack, t_node* start, t_node* end)
     j = start;
     while (j->data <= pivot_value && j != end)
 	{
-        if (j->data <= pivot_value && stack->size_a >= 2)
+        if (j->data <= pivot_value && stack->size_a > 2)
 		{
 			// if (i == NULL)
 			// 	i = start;
@@ -95,20 +95,20 @@ t_node* partition(t_stack *stack, t_node* start, t_node* end)
         }
 		printf("j = %d\n", j->data);
 		printf("pivot = %d\n", pivot->data);
+		temp = stack->a;
+		while (temp != NULL)
+		{
+			printf("%d ", temp->data);
+			temp = temp->next;
+		}
+		printf("\n");
         j = j->next;
     }
     if (i == NULL)
 		i = start;
 	else
 		i = i->next;
-    swap(&(i->data), &(end->data));
-	temp = stack->a;
-	while (temp != NULL)
-	{
-		printf("%d ", temp->data);
-		temp = temp->next;
-	}
-	printf("\n");
+    swap(&(i->data), &(pivot->data));
     return (i);
 }
 
