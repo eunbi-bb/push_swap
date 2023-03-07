@@ -98,7 +98,7 @@ int	sort(t_stack *s, int size)
 		else if (size == 3)
 			sort_aaa(s);
 		else
-			quicksort(s);
+			quicksort(s, size);
 	}
 	return (0);
 }

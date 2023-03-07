@@ -55,7 +55,7 @@ int		pusw_atoi(char *str, t_node *stack);
 int		sort_check(t_stack *stack, int order);
 void	duplication_check(t_node *stack);
 //quick_sort.c
-void	quicksort(t_stack *s);
+void	quicksort(t_stack *s, int size);
 
 t_node	*lst_front(t_node *lst);
 t_node	*lst_last(t_node *lst);
