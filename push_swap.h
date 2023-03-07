@@ -45,6 +45,7 @@ void	add_after(t_node *before, t_node *new_node);
 void	del_node(t_node **head, t_node **tail, t_node *p);
 //sort.c
 void	sort_aaa(t_stack *s);
+void	sort_bbb(t_stack *s);
 int		sort(t_stack *s, int size);
 int		push(t_stack *s, int len, int operation);
 //push_swap_utils.c

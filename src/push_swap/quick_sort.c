@@ -39,7 +39,7 @@ t_node* get_median(t_node *start, t_node *end)
     }
     i = i / 2;
     j = 0;
-    while (j < i)
+    while (j <= i)
 	{
         mid = mid->next;
         j++;
@@ -60,8 +60,8 @@ t_node* partition(t_stack *stack, t_node* start, t_node* end)
     pivot_value = end->data;
     i = start->prev;
     j = start;
-	if (stack->size_a <= 3 && || 1 < stack->size_b <= 3)
-		quick_sort_3(stack);
+	// if ((stack->size_a >= 1 && stack->size_a <= 3) || (stack->size_b >= 1 && stack->size_b <= 3))
+	// 	quick_sort_3(stack);
     pivot = get_median(start, end);
     swap(&(pivot->data), &(end->data));
     while (j != end)
@@ -72,9 +72,9 @@ t_node* partition(t_stack *stack, t_node* start, t_node* end)
 				i = start;
 			else
 				i = i->next;
+			// if (j->data <= pivot_value)
+			// 	pb(stack);
             swap(&(i->data), &(j->data));
-			if (j->data <= pivot_value)
-				pb(stack);
         }
         j = j->next;
     }
@@ -84,6 +84,13 @@ t_node* partition(t_stack *stack, t_node* start, t_node* end)
 	else
 		i = i->next;
     swap(&(i->data), &(end->data));
+	t_node *temp = stack->a;
+	while (temp != NULL)
+	{
+		printf("%d ", temp->data);
+		temp = temp->next;
+	}
+	printf("\n");
     return (i);
 }
 
