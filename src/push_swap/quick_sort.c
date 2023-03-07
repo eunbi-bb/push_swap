@@ -80,38 +80,38 @@ t_node* partition(t_stack *stack, t_node* start, t_node* end)
     pivot_value = pivot->data;
     i = start->prev;
     j = start;
-    while (j->data <= pivot_value)
+    while (j->data <= pivot_value && j != end)
 	{
-        // if (j->data <= pivot_value)
-		// {
+        if (j->data <= pivot_value && stack->size_a >= 2)
+		{
 			// if (i == NULL)
 			// 	i = start;
 			// else
 			// 	i = i->next;
-			// // if (j->data <= pivot_value)
-			// // 	pb(stack);
+			// if (j->data <= pivot_value)
+			// 	pb(stack);
             // swap(&(i->data), &(j->data));
 			pb(stack);
-        // }
+        }
 		printf("j = %d\n", j->data);
 		printf("pivot = %d\n", pivot->data);
         j = j->next;
     }
-	//printf("stack->b : %d\n", stack->b->data);
     if (i == NULL)
 		i = start;
 	else
 		i = i->next;
     swap(&(i->data), &(end->data));
-	// t_node *temp = stack->a;
-	// while (temp != NULL)
-	// {
-	// 	printf("%d ", temp->data);
-	// 	temp = temp->next;
-	// }
-	// printf("\n");
+	temp = stack->a;
+	while (temp != NULL)
+	{
+		printf("%d ", temp->data);
+		temp = temp->next;
+	}
+	printf("\n");
     return (i);
 }
+
 
 void q_sort(t_stack *stack, t_node *start, t_node *end)
 {
@@ -133,4 +133,6 @@ void	quicksort(t_stack *stack)
 	start = lst_front(stack->a);
 	end = lst_last(stack->a);
 	q_sort(stack, start, end);
+	while (stack->b != NULL)
+		pa(stack);
 }
