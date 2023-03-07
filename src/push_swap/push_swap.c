@@ -14,6 +14,7 @@ void	push_swap(char **argv)
 	if (!stack)
 		return ;
 	stack->a = NULL;
+	stack->b = NULL;
 	current = NULL;
 	while (i < size)
 	{
@@ -50,6 +51,7 @@ void	push_swap(char **argv)
 	}
 	printf("\n");
 	free(stack->a);
+	free(stack->b);
 }
 
 int	main(int argc, char **argv)

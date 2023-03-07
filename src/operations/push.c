@@ -6,7 +6,7 @@
 /*   By: eucho <eucho@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/01 15:20:02 by eucho         #+#    #+#                 */
-/*   Updated: 2023/03/04 18:47:20 by eunbi         ########   odam.nl         */
+/*   Updated: 2023/03/07 09:39:16 by eucho         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ void	pb(t_stack *stack)
 	if (stack->a && stack->a->next)
 		del_node(&stack->a, &stack->a->next, stack->a);
 	stack->size_a--;
+	//printf("stack->b: %d\n", stack->b->data);
 	printf("pb\n");
 }

@@ -4,6 +4,13 @@ void	quick_sort_3(t_stack *stack)
 {
 	if (stack->size_a == 3)
 		sort_aaa(stack);
+	else if (stack->size_a == 2)
+		if (stack->a->data > stack->a->next->data)
+			sa(stack);
+	if (stack->size_b == 3)
+		sort_bbb(stack);
+	else if (stack->size_b == 2)
+		sb(stack);
 }
 
 void	swap(int *num1, int *num2)
@@ -43,7 +50,7 @@ t_node* get_median(t_node *start, t_node *end)
 pivot element at its correct position in sorted array,
 and places all smaller (smaller than pivot) to left
 of pivot and all greater elements to right of pivot */
-t_node* partition(t_node* start, t_node* end)
+t_node* partition(t_stack *stack, t_node* start, t_node* end)
 {
 	t_node* pivot;
 	t_node* i;
@@ -53,6 +60,8 @@ t_node* partition(t_node* start, t_node* end)
     pivot_value = end->data;
     i = start->prev;
     j = start;
+	if (stack->size_a <= 3 && || 1 < stack->size_b <= 3)
+		quick_sort_3(stack);
     pivot = get_median(start, end);
     swap(&(pivot->data), &(end->data));
     while (j != end)
@@ -64,9 +73,12 @@ t_node* partition(t_node* start, t_node* end)
 			else
 				i = i->next;
             swap(&(i->data), &(j->data));
+			if (j->data <= pivot_value)
+				pb(stack);
         }
         j = j->next;
     }
+	//printf("stack->b : %d\n", stack->b->data);
     if (i == NULL)
 		i = start;
 	else
@@ -75,24 +87,24 @@ t_node* partition(t_node* start, t_node* end)
     return (i);
 }
 
-void q_sort(t_node* start, t_node* end) 
+void q_sort(t_stack *stack, t_node *start, t_node *end)
 {
 	t_node *pivot;
 
     if (end != NULL && start != end && start != end->next) 
 	{
-        pivot = partition(start, end);
-        q_sort(start, pivot->prev);
-        q_sort(pivot->next, end);
+        pivot = partition(stack, start, end);
+        q_sort(stack, start, pivot->prev);
+        q_sort(stack, pivot->next, end);
     }
 }
 
-void	quicksort(t_stack *s)
+void	quicksort(t_stack *stack)
 {
 	t_node	*start;
 	t_node	*end;
 
-	start = lst_front(s->a);
-	end = lst_last(s->a);
-	q_sort(start, end);
+	start = lst_front(stack->a);
+	end = lst_last(stack->a);
+	q_sort(stack, start, end);
 }
