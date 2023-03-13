@@ -32,12 +32,12 @@ void	push_swap(char **argv)
 		tmp = pusw_atoi(argv[i], stack->a);
 		if (!stack->a)
 		{
-			stack->a = new_node(tmp);
+			stack->a = new_node(tmp, -1);
 			current = stack->a;
 		}
 		else
 		{
-			add_after(current, new_node(tmp));
+			add_after(current, new_node(tmp, -1));
 			current = current->next;
 		}
 		i++;

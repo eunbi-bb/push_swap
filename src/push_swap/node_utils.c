@@ -24,7 +24,7 @@ t_node	*lst_front(t_node *lst)
 	return (tmp);
 }
 
-t_node	*new_node(int data)
+t_node	*new_node(int data, int index)
 {
 	t_node	*new_node;
 
@@ -32,6 +32,7 @@ t_node	*new_node(int data)
 	if (!new_node)
 		return (NULL);
 	new_node->data = data;
+	new_node->index = index;
 	new_node->prev = NULL;
 	new_node->next = NULL;
 	return (new_node);

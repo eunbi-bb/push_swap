@@ -52,26 +52,6 @@ int	pusw_atoi(char *str, t_node *stack)
 		error_free(stack);
 	return (sign *num);
 }
-/*Check out if the stack is sorted.
-return 1 if it is sorted. Otherwise 0.*/
-int	sort_check(t_stack *stack)
-{
-	t_node	*tmp;
-	int		prev_value;
-
-	if (!stack)
-		return(1);
-	tmp = stack->a;
-	prev_value = tmp->data;
-	while (tmp)
-	{
-		if (tmp->data < prev_value)
-			return (0);
-		prev_value = tmp->data;
-		tmp = tmp->next;
-	}
-	return(1);
-}
 
 void	duplication_check(t_node *stack)
 {

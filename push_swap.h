@@ -5,7 +5,8 @@
 
 typedef struct s_node
 {
-	int		data;
+	int				data;
+	unsigned int	index;
 	struct s_node	*prev;
 	struct s_node	*next;
 } t_node;
@@ -40,14 +41,14 @@ void	rrb(t_stack *stack);
 void	rrr(t_stack *stack);
 //push_swap.c
 void	push_swap(char **argv);
-t_node	*new_node(int data);
+t_node	*new_node(int data, int index);
 void	add_before(t_node *current, t_node *new_node);
 void	add_after(t_node *before, t_node *new_node);
 void	del_node(t_node **head, t_node **tail, t_node *p);
 //sort.c
 void	sort_aaa(t_stack *s);
 void	sort(t_stack *s, int size);
-int		get_min(t_node *stack);
+t_node	*get_min(t_node *stack, long lower_limit);
 int		get_max(t_node *stack);
 
 //push_swap_utils.c
@@ -60,3 +61,5 @@ void	duplication_check(t_node *stack);
 void	radix(t_stack *stack, int size);
 t_node	*lst_front(t_node *lst);
 t_node	*lst_last(t_node *lst);
+
+void	put_index(t_stack *stack);

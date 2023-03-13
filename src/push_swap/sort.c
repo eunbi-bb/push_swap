@@ -34,9 +34,12 @@ void	sort_aaa(t_stack *stack)
 
 static void	sort_by_min(t_stack *stack, int size)
 {
+	t_node *tmp;
+
 	while (size > 3)
 	{
-		while (stack->a->data > get_min(stack->a))
+		tmp = get_min(stack->a, -2147483649);
+		while (stack->a->data > tmp->data)
 			ra(stack);
 		pb(stack);
 		size--;
@@ -84,8 +87,9 @@ static void	find_fastest(t_stack *stack, int size)
 
 void	sort(t_stack *stack, int size)
 {
-	if (sort_check(stack) == 0)
+	if (!sort_check(stack))
 	{
+		put_index(stack);
 		if (size <= 5)
 		{
 			if (size == 2)

@@ -13,7 +13,7 @@ void	radix(t_stack *stack, int size)
 		current = stack->a;
 		while (i < size)
 		{
-			if ((1 & (current->data >> bit)) == 0)
+			if ((1 & (current->index >> bit)) == 0)
 				pb(stack);
 			else
 				ra(stack);

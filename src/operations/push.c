@@ -6,7 +6,7 @@
 /*   By: eucho <eucho@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/01 15:20:02 by eucho         #+#    #+#                 */
-/*   Updated: 2023/03/13 19:32:21 by eunbi         ########   odam.nl         */
+/*   Updated: 2023/03/13 22:17:28 by eunbi         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	pa(t_stack *stack)
 	t_node	*new;
 
 	tail = lst_last(stack->a);
-	new = new_node(stack->b->data);
+	new = new_node(stack->b->data, stack->b->index);
 	stack->size_a++;
 	add_before(stack->a, new);
 	stack->a = new;
@@ -37,7 +37,7 @@ void	pb(t_stack *stack)
 	t_node	*new;
 
 	tail = lst_last(stack->a);
-	new = new_node(stack->a->data);
+	new = new_node(stack->a->data, stack->a->index);
 	stack->size_b++;
 	add_before(stack->b, new);
 	stack->b = new;
