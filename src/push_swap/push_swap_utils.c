@@ -47,33 +47,25 @@ int	pusw_atoi(char *str, t_node *stack)
 		error_free(stack);
 	return (sign *num);
 }
-
-int	sort_check(t_stack *stack, int order)
+/*Check out if the stack is sorted.
+return 1 if it is sorted. Otherwise 0.*/
+int	sort_check(t_stack *stack)
 {
 	t_node	*tmp;
+	int		prev_value;
 
+	if (!stack)
+		return(1);
 	tmp = stack->a;
-	if (order == ASCENDING)
+	prev_value = tmp->data;
+	while (tmp)
 	{
-		while(tmp->next != NULL)
-		{
-			if (tmp->data > tmp->next->data)
-				return (0);
-			tmp = tmp->next;
-		}
-		ft_printf ("The arguments are in ascending order.\n");
-		return (1);
+		if (tmp->data < prev_value)
+			return (0);
+		prev_value = tmp->data;
+		tmp = tmp->next;
 	}
-	else
-	{
-		while (tmp->next != NULL)
-		{
-			if (tmp->data < tmp->next->data)
-				return (0);
-			tmp = tmp->next;
-		}
-		return (1);
-	}
+	return(1);
 }
 
 void	duplication_check(t_node *stack)

@@ -18,18 +18,43 @@ int	main(void)
 
 	stack->a = new_node(3);
 	add_after(stack->a, new_node(2));
-	add_after(stack->a, new_node(5));
+	add_after(stack->a->next, new_node(5));
 	
 	stack->b = new_node(8);
 	add_after(stack->b, new_node(9));
-	add_after(stack->b, new_node(7));
+	add_after(stack->b->next, new_node(7));
+	t_node *temp = stack->a;
+	while (temp != NULL)
+	{
+		printf("%d ", temp->data);
+		temp = temp->next;
+	}
+	printf("\n");
+	temp = stack->b;
+	while (temp != NULL)
+	{
+		printf("%d ", temp->data);
+		temp = temp->next;
+	}
+	printf("\n");
 
-	pa(stack);
+	//pa(stack);
 	pb(stack);
-	system("leaks a.out");
 
-	printf("%d %d %d\n", stack->a->data, stack->a->next->data, stack->a->next->next->data);
-	printf("%d %d %d\n", stack->b->data, stack->b->next->data, stack->b->next->next->data);
+	temp = stack->a;
+	while (temp != NULL)
+	{
+		printf("%d ", temp->data);
+		temp = temp->next;
+	}
+	printf("\n");
+	temp = stack->b;
+	while (temp != NULL)
+	{
+		printf("%d ", temp->data);
+		temp = temp->next;
+	}
+	printf("\n");
 	return(0);
 }
 

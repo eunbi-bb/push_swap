@@ -41,6 +41,7 @@ void	rrr(t_stack *stack);
 //push_swap.c
 void	push_swap(char **argv);
 t_node	*new_node(int data);
+void	add_before(t_node *current, t_node *new_node);
 void	add_after(t_node *before, t_node *new_node);
 void	del_node(t_node **head, t_node **tail, t_node *p);
 //sort.c
@@ -52,10 +53,9 @@ int		push(t_stack *s, int len, int operation);
 void	error_free(t_node *stack);
 int		pusw_strlen(char **argv);
 int		pusw_atoi(char *str, t_node *stack);
-int		sort_check(t_stack *stack, int order);
+int		sort_check(t_stack *stack);
 void	duplication_check(t_node *stack);
-//quick_sort.c
-void	quicksort(t_stack *s, int size);
-
+//radix.c
+void	radix(t_stack *stack, int size);
 t_node	*lst_front(t_node *lst);
 t_node	*lst_last(t_node *lst);

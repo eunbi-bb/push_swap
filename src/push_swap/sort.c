@@ -15,7 +15,7 @@
 // 			if (tmp_stack[i] > tmp_stack[j])
 // 			{
 // 				tmp = tmp_stack[i];
-// 				tmp_stack[i] = tmp_stack[j];
+// 				tmp_stack[i] = tmp_stack[j];z
 // 				tmp_stack[j] = tmp;
 // 			}
 // 			j++;
@@ -29,86 +29,53 @@
   4. 3 1 2
   5. 3 2 1
 */
-void	sort_aaa(t_stack *s)
+void	sort_aaa(t_stack *stack)
 {
-	if (s->a->data < s->a->next->data
-		&& s->a->data < s->a->next->next->data
-		&& s->a->next->data > s->a->next->next->data)
+	int	one;
+	int	two;
+	int	three;
+
+	one = stack->a->data;
+	two = stack->a->next->data;
+	three = stack->a->next->next->data;
+	if (one < two && one < three && two > three)
 	{
-		sa(s);
-		ra(s);
+		sa(stack);
+		ra(stack);
 	}
-	if (s->a->data > s->a->next->data
-		&& s->a->data < s->a->next->next->data
-		&& s->a->next->data < s->a->next->next->data)
-		sa(s);
-	if (s->a->data < s->a->next->data
-		&& s->a->data > s->a->next->next->data
-		&& s->a->next->data > s->a->next->next->data)
-		rra(s);
-	if (s->a->data > s->a->next->data
-		&& s->a->data > s->a->next->next->data
-		&& s->a->next->data < s->a->next->next->data)
-		ra(s);
-	if (s->a->data > s->a->next->data
-		&& s->a->data > s->a->next->next->data
-		&& s->a->next->data > s->a->next->next->data)
+	else if (one > two && one < three && two < three)
+		sa(stack);
+	else if (one < two && one > three && two > three)
+		rra(stack);
+	else if (one > two && one > three && two < three)
+		ra(stack);
+	else if (one > two && one > three && two > three)
 	{
-		sa(s);
-		rra(s);
+		sa(stack);
+		rra(stack);
 	}
 }
 
-void	sort_bbb(t_stack *s)
+int	sort(t_stack *stack, int size)
 {
-	if (s->b->data < s->b->next->data
-		&& s->b->data < s->b->next->next->data
-		&& s->b->next->data > s->b->next->next->data)
-	{
-		sb(s);
-		rb(s);
-	}
-	if (s->b->data > s->b->next->data
-		&& s->b->data < s->b->next->next->data
-		&& s->b->next->data < s->b->next->next->data)
-		sb(s);
-	if (s->b->data < s->b->next->data
-		&& s->b->data > s->b->next->next->data
-		&& s->b->next->data > s->b->next->next->data)
-		rrb(s);
-	if (s->b->data > s->b->next->data
-		&& s->b->data > s->b->next->next->data
-		&& s->b->next->data < s->b->next->next->data)
-		rb(s);
-	if (s->b->data > s->b->next->data
-		&& s->b->data > s->b->next->next->data
-		&& s->b->next->data > s->b->next->next->data)
-	{
-		sb(s);
-		rrb(s);
-	}
-}
-
-int	sort(t_stack *s, int size)
-{
-	if (sort_check(s, ASCENDING) == 0)
+	if (sort_check(stack) == 0)
 	{
 		if (size == 2)
-			sa(s);
+			sa(stack);
 		else if (size == 3)
-			sort_aaa(s);
+			sort_aaa(stack);
 		else
-			quicksort(s, size);
+			radix(stack, size);
 	}
 	return (0);
 }
 
-int	push(t_stack *s, int len, int operation)
+int	push(t_stack *stack, int len, int operation)
 {
 	if (operation == 0)
-		pb(s);
+		pb(stack);
 	else
-		pa(s);
+		pa(stack);
 	len--;
 	return (len);
 }

@@ -37,6 +37,30 @@ t_node	*new_node(int data)
 	return (new_node);
 }
 
+void	add_before(t_node *current, t_node *new_node)
+{
+	t_node	*head;
+
+	head = lst_front(current);
+	if (current == NULL)
+	{
+		current = new_node;
+	}
+	else if (current == head)
+	{
+		new_node->prev = NULL;
+		new_node->next = current;
+		current->prev = new_node;
+	}
+	else
+	{
+		new_node->next = current;
+		new_node->prev = current->prev;
+		current->prev->next = new_node;
+		current->prev = new_node;
+	}
+}
+
 void	add_after(t_node *before, t_node *new_node)
 {
 	t_node	*head;
@@ -67,7 +91,7 @@ void	add_after(t_node *before, t_node *new_node)
 
 void	del_node(t_node **head, t_node **tail, t_node *p)
 {
-	if (*head == NULL || p == NULL)
+	if (head == NULL || *head == NULL || p == NULL)
 		return ;
 	if (p == *head)
 	{

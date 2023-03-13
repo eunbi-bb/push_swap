@@ -8,7 +8,7 @@ HEADER		= push_swap.h
 LIBFT		= libft
 
 PUSH_SWAP_DIR	=	push_swap/
-SRC_FILE		=	push_swap.c quick_sort.c sort.c push_swap_utils.c node_utils.c
+SRC_FILE		=	push_swap.c radix.c sort.c push_swap_utils.c node_utils.c
 
 OPER_DIR		=	operations/
 OPER_FILE		=	push.c swap.c rotate.c reverse_rotate.c
