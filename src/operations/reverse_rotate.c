@@ -6,7 +6,7 @@
 /*   By: eucho <eucho@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/01 15:19:56 by eucho         #+#    #+#                 */
-/*   Updated: 2023/03/04 18:47:24 by eunbi         ########   odam.nl         */
+/*   Updated: 2023/03/13 19:32:52 by eunbi         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,8 @@ void	rra(t_stack *stack)
 		}
 		tail->prev = NULL;
 		tail->data = tmp;
-		printf("rra\n");
+		ft_printf("rra\n");
 	}
-	else
-		printf("rb: Less than 2 numbers in stack B.\n");
 }
 /*reverse rotate b : Shift down all elements of stack b by 1.*/
 void	rrb(t_stack *stack)
@@ -61,10 +59,8 @@ void	rrb(t_stack *stack)
 		}
 		tail->prev = NULL;
 		tail->data = tmp;
-		printf("rrb\n");
+		ft_printf("rrb\n");
 	}
-	else
-		printf("rb: Less than 2 numbers in stack B.\n");
 }
 
 /*rra and rrb at the same time.*/
@@ -93,8 +89,6 @@ void	rrr(t_stack *stack)
 		}
 		tail->prev = NULL;
 		tail->data = tmp;
-		printf("rrr\n");
+		ft_printf("rrr\n");
 	}
-	else
-		printf("rb: Less than 2 numbers in stack B.\n");
 }

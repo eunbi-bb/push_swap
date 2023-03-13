@@ -1,5 +1,16 @@
 #include "../../push_swap.h"
 
+void	print_stack(t_node *stack)
+{
+	t_node *temp = stack;
+	while (temp != NULL)
+	{
+		printf("%d ", temp->data);
+		temp = temp->next;
+	}
+	printf("\n");
+}
+
 void	push_swap(char **argv)
 {
 	t_stack	*stack;
@@ -33,23 +44,9 @@ void	push_swap(char **argv)
 	}
 	stack->size_a = size;
 	duplication_check(stack->a);
-	printf("BEFORE SORTING\n");
-	t_node *temp = stack->a;
-	while (temp != NULL)
-	{
-		printf("%d ", temp->data);
-		temp = temp->next;
-	}
-	printf("\n");
+	print_stack(stack->a);
 	sort(stack, size);
-	printf("AFTER SORTING\n");
-	temp = stack->a;
-	while (temp != NULL)
-	{
-		printf("%d ", temp->data);
-		temp = temp->next;
-	}
-	printf("\n");
+	print_stack(stack->a);
 	free(stack->a);
 	free(stack->b);
 }

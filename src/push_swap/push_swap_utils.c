@@ -2,7 +2,7 @@
 
 void	error_free(t_node *stack)
 {
-	ft_printf("ERROR\n");
+	ft_printf("Error\n");
 	free(stack);
 	exit (1);
 }
@@ -16,6 +16,11 @@ int	pusw_strlen(char **argv)
 	{
 		i++;
 		argv++;
+	}
+	if (i == 0)
+	{
+		ft_printf("Error\n");
+		exit(1);
 	}
 	return (i);
 }
@@ -38,7 +43,7 @@ int	pusw_atoi(char *str, t_node *stack)
 		i++;
 	while (str[i])
 	{
-		if (str[i] < '0' || str[i] > '9')
+		if (str[i] < '0' || str[i] > '9' || !str[i])
 			error_free(stack);
 		num = (str[i] - '0') + (num * 10);
 		i++;

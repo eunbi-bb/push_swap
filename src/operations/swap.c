@@ -6,7 +6,7 @@
 /*   By: eucho <eucho@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/01 15:19:49 by eucho         #+#    #+#                 */
-/*   Updated: 2023/03/06 12:40:33 by eucho         ########   odam.nl         */
+/*   Updated: 2023/03/13 19:33:53 by eunbi         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,8 @@ void	sa(t_stack *stack)
 		tmp = stack->a->data;
 		stack->a->data = stack->a->next->data;
 		stack->a->next->data = tmp;
-		printf("sa\n");
+		ft_printf("sa\n");
 	}
-	else
-		printf("sa: Less than 2 numbers in stack A.\n");
 }
 /*swap b : Swap the first 2 elements at the top of stack b.*/
 void	sb(t_stack *stack)
@@ -38,10 +36,8 @@ void	sb(t_stack *stack)
 		tmp = stack->b->data;
 		stack->b->data = stack->b->next->data;
 		stack->b->next->data = tmp;
-		printf("sb\n");
+		ft_printf("sb\n");
 	}
-	else
-		printf("sb: Less than 2 numbers in stack B.\n");
 }
 
 void	ss(t_stack *stack)
@@ -56,8 +52,6 @@ void	ss(t_stack *stack)
 		tmp = stack->b->data;
 		stack->b->data = stack->b->next->data;
 		stack->b->next->data = tmp;
-		printf("ss\n");
+		ft_printf("ss\n");
 	}
-	else
-		printf("ss: Less than 2 numbers in the stacks.");
 }
