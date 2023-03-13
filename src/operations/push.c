@@ -6,7 +6,7 @@
 /*   By: eucho <eucho@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/01 15:20:02 by eucho         #+#    #+#                 */
-/*   Updated: 2023/03/13 14:49:58 by eunbi         ########   odam.nl         */
+/*   Updated: 2023/03/13 17:13:14 by eunbi         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ void	pa(t_stack *stack)
 	stack->size_a++;
 	add_before(stack->a, new);
 	stack->a = new;
-	if (stack->b && stack->b->next)
-		del_node(&stack->b, &tail, stack->b);
+	del_node(&stack->b, &tail, stack->b);
 	if (stack->b)
 		stack->size_b--;
 	printf("pa\n");
@@ -42,9 +41,7 @@ void	pb(t_stack *stack)
 	stack->size_b++;
 	add_before(stack->b, new);
 	stack->b = new;
-	if (stack->a && stack->a->next)
-		del_node(&stack->a, &tail, stack->a);
+	del_node(&stack->a, &tail, stack->a);
 	stack->size_a--;
-
 	printf("pb\n");
 }

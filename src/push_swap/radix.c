@@ -13,27 +13,13 @@ void	radix(t_stack *stack, int size)
 		current = stack->a;
 		while (i < size)
 		{
-			if (((current->data >> bit) & 1) == 0)
+			if ((1 & (current->data >> bit)) == 0)
 				pb(stack);
 			else
 				ra(stack);
 			current = stack->a;
 			i++;
 		}
-		t_node *temp = stack->a;
-		while (temp != NULL)
-		{
-			printf("%d ", temp->data);
-			temp = temp->next;
-		}
-		printf("\n");
-		temp = stack->b;
-		while (temp != NULL)
-		{
-			printf("%d ", temp->data);
-			temp = temp->next;
-		}
-		printf("\n");
 		current = stack->b;
 		while (stack->b)
 			pa(stack);

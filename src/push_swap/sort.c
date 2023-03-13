@@ -1,28 +1,4 @@
 #include "../../push_swap.h"
-
-// void	sort_tmp(int *tmp_stack, int size)
-// {
-// 	int	i;
-// 	int	j;
-// 	int	tmp;
-
-// 	i = 0;
-// 	while (i < size)
-// 	{
-// 		j = i + 1;
-// 		while (j < size)
-// 		{
-// 			if (tmp_stack[i] > tmp_stack[j])
-// 			{
-// 				tmp = tmp_stack[i];
-// 				tmp_stack[i] = tmp_stack[j];z
-// 				tmp_stack[j] = tmp;
-// 			}
-// 			j++;
-// 		}
-// 		i++;
-// 	}
-// }
 /*1. 1 3 2
   2. 2 1 3
   3. 2 3 1
@@ -56,26 +32,70 @@ void	sort_aaa(t_stack *stack)
 	}
 }
 
-int	sort(t_stack *stack, int size)
+static void	sort_by_min(t_stack *stack, int size)
+{
+	while (size > 3)
+	{
+		while (stack->a->data > get_min(stack->a))
+			ra(stack);
+		pb(stack);
+		size--;
+	}
+	sort_aaa(stack);
+	while (stack->b)
+		pa(stack);
+}
+
+static void	sort_by_max(t_stack *stack, int size)
+{
+	while (size > 3)
+	{
+		while (stack->a->data > get_max(stack->a))
+			ra(stack);
+		pb(stack);
+		size--;
+	}
+	sort_aaa(stack);
+	while (stack->b)
+	{
+		pa(stack);
+		ra(stack);
+	}
+}
+
+static void	find_fastest(t_stack *stack, int size)
+{
+	t_node	*tmp;
+	int		i;
+
+	tmp = stack->a;
+	i = 0;
+	while (tmp->data < get_max(stack->a))
+	{
+		i++;
+		tmp = tmp->next;
+	}
+	if	(i < size / 2)
+		sort_by_min(stack, size);
+	else
+		sort_by_max(stack, size);
+}
+
+
+void	sort(t_stack *stack, int size)
 {
 	if (sort_check(stack) == 0)
 	{
-		if (size == 2)
-			sa(stack);
-		else if (size == 3)
-			sort_aaa(stack);
+		if (size <= 5)
+		{
+			if (size == 2)
+				sa(stack);
+			else if (size == 3)
+				sort_aaa(stack);
+			else
+				find_fastest(stack, size);
+		}
 		else
 			radix(stack, size);
 	}
-	return (0);
-}
-
-int	push(t_stack *stack, int len, int operation)
-{
-	if (operation == 0)
-		pb(stack);
-	else
-		pa(stack);
-	len--;
-	return (len);
 }
