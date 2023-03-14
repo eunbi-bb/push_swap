@@ -8,6 +8,7 @@
 		"limits": "c",
 		"algorithm": "c",
 		"initializer_list": "c",
-		"utility": "c"
+		"utility": "c",
+		"libft.h": "c"
 	}
 }

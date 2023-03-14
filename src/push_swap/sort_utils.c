@@ -10,7 +10,7 @@ t_node	*get_min(t_node *stack, long lower_limit)
 		return (0);
 	tmp = stack; 
 	min = stack;
-	min_value = 2147483647;
+	min_value = INT_MAX;
 	while (tmp)
 	{
 		if ((tmp->data <= min_value) && (tmp->data > lower_limit))
