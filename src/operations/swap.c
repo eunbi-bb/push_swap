@@ -6,12 +6,11 @@
 /*   By: eucho <eucho@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/01 15:19:49 by eucho         #+#    #+#                 */
-/*   Updated: 2023/03/13 22:22:54 by eunbi         ########   odam.nl         */
+/*   Updated: 2023/03/14 09:20:49 by eunbi         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
-#include <stdio.h>
 
 /*swap a : Swap the first 2 elements at the top of stack a.*/
 void	sa(t_stack *stack)

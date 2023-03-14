@@ -6,12 +6,11 @@
 /*   By: eucho <eucho@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/01 15:20:02 by eucho         #+#    #+#                 */
-/*   Updated: 2023/03/13 22:17:28 by eunbi         ########   odam.nl         */
+/*   Updated: 2023/03/14 09:20:53 by eunbi         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
-#include <stdio.h>
 /*push a : Take the first element at the top of b 
 		and put it at the top of a.*/
 void	pa(t_stack *stack)

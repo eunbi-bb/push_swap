@@ -6,21 +6,11 @@
 /*   By: eucho <eucho@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/01 15:19:56 by eucho         #+#    #+#                 */
-/*   Updated: 2023/03/13 19:32:52 by eunbi         ########   odam.nl         */
+/*   Updated: 2023/03/14 09:22:38 by eunbi         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
-#include <stdio.h>
-
-t_node	*to_tail(t_node *node)
-{
-	while (node->next != NULL)
-	{
-		node = node->next;
-	}
-	return (node);
-}
 
 /*reverse rotate a : Shift down all elements of stack a by 1.*/
 void	rra(t_stack *stack)
@@ -30,7 +20,7 @@ void	rra(t_stack *stack)
 
 	if (stack->size_a >= 2)
 	{
-		tail = to_tail(stack->a);
+		tail = lst_last(stack->a);
 		tmp = tail->data;
 		while (tail->prev != NULL)
 		{
@@ -50,7 +40,7 @@ void	rrb(t_stack *stack)
 
 	if (stack->size_b >= 2)
 	{
-		tail = to_tail(stack->b);
+		tail = lst_last(stack->b);
 		tmp = tail->data;
 		while (tail->prev != NULL)
 		{
@@ -71,7 +61,7 @@ void	rrr(t_stack *stack)
 
 	if (stack->size_a >= 2 && stack->size_b >= 2)
 	{
-		tail = to_tail(stack->a);
+		tail = lst_last(stack->a);
 		tmp = tail->data;
 		while (tail->prev != NULL)
 		{
@@ -80,7 +70,7 @@ void	rrr(t_stack *stack)
 		}
 		tail->prev = NULL;
 		tail->data = tmp;
-		tail = to_tail(stack->b);
+		tail = lst_last(stack->b);
 		tmp = tail->data;
 		while (tail->prev != NULL)
 		{
