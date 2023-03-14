@@ -23,7 +23,7 @@ t_node	*get_min(t_node *stack, long lower_limit)
 	return (min);
 }
 
-int	get_max(t_node *stack)
+unsigned int	get_max(t_node *stack)
 {
 	t_node	*tmp;
 	t_node	*max;
@@ -34,11 +34,11 @@ int	get_max(t_node *stack)
 	max = stack;
 	while (tmp)
 	{
-		if (tmp->data > max->data)
+		if (tmp->index > max->index)
 			max = tmp;
 		tmp = tmp->next;
 	}
-	return (max->data);
+	return (max->index);
 }
 
 void	put_index(t_stack *stack)
@@ -53,7 +53,7 @@ void	put_index(t_stack *stack)
 	{
 		min = get_min(stack->a, lowest);
 		min->index = i;
-	printf("giving index : %d to %d\n", i, min->data);
+	//printf("giving index : %d to %d\n", i, min->data);
 		lowest = min->data;
 		i++;
 	}

@@ -49,7 +49,7 @@ void	del_node(t_node **head, t_node **tail, t_node *p);
 void	sort_aaa(t_stack *s);
 void	sort(t_stack *s, int size);
 t_node	*get_min(t_node *stack, long lower_limit);
-int		get_max(t_node *stack);
+unsigned int	get_max(t_node *stack);
 
 //push_swap_utils.c
 void	error_free(t_node *stack);
