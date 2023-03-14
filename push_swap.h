@@ -21,12 +21,6 @@ typedef	struct	s_stack
 	int		size_a;
 	int		size_b;
 } t_stack;
-
-# define ASCENDING 0
-# define DESCENDING 1
-# define OPT 0
-# define STACK 1
-
 //Operations
 //swap.c
 void	sa(t_stack *stack);
