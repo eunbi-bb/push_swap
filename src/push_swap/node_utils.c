@@ -1,29 +1,5 @@
 #include "../../push_swap.h"
 
-t_node	*lst_last(t_node *lst)
-{
-	t_node	*tmp;
-
-	tmp = lst;
-	if (!tmp)
-		return (tmp);
-	while (tmp->next)
-		tmp = tmp->next;
-	return (tmp);
-}
-
-t_node	*lst_front(t_node *lst)
-{
-	t_node	*tmp;
-
-	tmp = lst;
-	if (!tmp)
-		return (tmp);
-	while (tmp->prev)
-		tmp = tmp->prev;
-	return (tmp);
-}
-
 t_node	*new_node(int data, int index)
 {
 	t_node	*new_node;

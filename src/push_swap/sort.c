@@ -33,34 +33,30 @@ void	sort_aaa(t_stack *stack)
 	}
 }
 
-static void	sort_by_min(t_stack *stack, int size)
+void	sort_by_min(t_stack *stack)
 {
-	unsigned int min_index;
+	unsigned int	min_index;
 
-	while (size > 3)
+	while (stack->size_a > 3)
 	{
 		min_index = get_min(stack->a, -2147483649)->index;
 		while (stack->a->index > min_index)
 			ra(stack);
 		pb(stack);
-		size--;
 	}
 	sort_aaa(stack);
 	while (stack->b)
 		pa(stack);
 }
 
-static void	sort_by_max(t_stack *stack, int size)
+void	sort_by_max(t_stack *stack)
 {
-	while (size > 3)
+	while (stack->size_a > 3)
 	{
 		while (stack->a->index < get_max(stack->a))
 			ra(stack);
 		pb(stack);
-		size--;
 	}
-	ft_printf("max: ");
-	print_stack(stack->b);
 	sort_aaa(stack);
 	while (stack->b)
 	{
@@ -69,7 +65,7 @@ static void	sort_by_max(t_stack *stack, int size)
 	}
 }
 
-static void	find_fastest(t_stack *stack, int size)
+void	find_fastest(t_stack *stack)
 {
 	t_node	*tmp;
 	int		i;
@@ -81,27 +77,27 @@ static void	find_fastest(t_stack *stack, int size)
 		i++;
 		tmp = tmp->next;
 	}
-	if	(i < size / 2)
-		sort_by_max(stack, size);
+	if	(i < stack->size_a / 2)
+		sort_by_max(stack);
 	else
-		sort_by_min(stack, size);
+		sort_by_min(stack);
 }
 
-void	sort(t_stack *stack, int size)
+void	sort(t_stack *stack)
 {
 	if (!sort_check(stack))
 	{
 		put_index(stack);
-		if (size <= 5)
+		if (stack->size_a <= 5)
 		{
-			if (size == 3)
+			if (stack->size_a == 3)
 				sort_aaa(stack);
-			else if (size == 2)
+			else if (stack->size_a == 2)
 				sa(stack);
 			else
-				find_fastest(stack, size);
+				find_fastest(stack);
 		}
 		else
-			radix(stack, size);
+			radix(stack, stack->size_a);
 	}
 }

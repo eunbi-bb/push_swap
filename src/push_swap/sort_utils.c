@@ -53,7 +53,6 @@ void	put_index(t_stack *stack)
 	{
 		min = get_min(stack->a, lowest);
 		min->index = i;
-	printf("giving index : %d to %d\n", i, min->data);
 		lowest = min->data;
 		i++;
 	}

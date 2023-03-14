@@ -2,7 +2,7 @@
 
 void	radix(t_stack *stack, int size)
 {
-	int	i;
+	int				i;
 	unsigned int	bit;
 	t_node			*current;
 

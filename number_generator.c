@@ -2,6 +2,17 @@
 #include <stdlib.h>
 #include <time.h>
 
+// void	print_stack(t_node *stack)
+// {
+// 	t_node *temp = stack;
+// 	while (temp != NULL)
+// 	{
+// 		printf("%d ", temp->data);
+// 		temp = temp->next;
+// 	}
+// 	printf("\n");
+// }
+
 int main() {
     int num_to_generate;
     printf("How many random numbers do you want to generate? ");

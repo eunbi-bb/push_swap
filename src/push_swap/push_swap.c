@@ -11,23 +11,43 @@ void	print_stack(t_node *stack)
 	printf("\n");
 }
 
+t_node	*lst_last(t_node *lst)
+{
+	t_node	*tmp;
+
+	tmp = lst;
+	if (!tmp)
+		return (tmp);
+	while (tmp->next)
+		tmp = tmp->next;
+	return (tmp);
+}
+
+t_node	*lst_front(t_node *lst)
+{
+	t_node	*tmp;
+
+	tmp = lst;
+	if (!tmp)
+		return (tmp);
+	while (tmp->prev)
+		tmp = tmp->prev;
+	return (tmp);
+}
+
 void	push_swap(char **argv)
 {
 	t_stack	*stack;
 	t_node	*current;
-	int		size;
 	int		i;
 	int		tmp;
 
 	i = 0;
-	size = pusw_strlen(argv);
 	stack = malloc(sizeof(t_stack));
+	stack->size_a = pusw_strlen(argv);
 	if (!stack)
 		return ;
-	stack->a = NULL;
-	stack->b = NULL;
-	current = NULL;
-	while (i < size)
+	while (i < stack->size_a)
 	{
 		tmp = pusw_atoi(argv[i], stack->a);
 		if (!stack->a)
@@ -42,17 +62,22 @@ void	push_swap(char **argv)
 		}
 		i++;
 	}
-	stack->size_a = size;
 	duplication_check(stack->a);
-	print_stack(stack->a);
-	sort(stack, size);
-	print_stack(stack->a);
-	free(stack->a);
-	free(stack->b);
+	//print_stack(stack->a);
+	sort(stack);
+	//print_stack(stack->a);
+	//print_stack(stack->b);
+	free(stack);
 }
+
+// void	leak_check(void)
+// {
+// 	system("valgrind --leak-check=full ./push_swap");
+// }
 
 int	main(int argc, char **argv)
 {
+	//atexit(leak_check);
 	if (argc > 1)
 	{
 		argv++;
