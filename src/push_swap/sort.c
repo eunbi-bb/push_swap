@@ -53,7 +53,7 @@ static void	sort_by_max(t_stack *stack, int size)
 {
 	while (size > 3)
 	{
-		while (stack->a->data > get_max(stack->a))
+		while (stack->a->data < get_max(stack->a))
 			ra(stack);
 		pb(stack);
 		size--;
@@ -79,9 +79,9 @@ static void	find_fastest(t_stack *stack, int size)
 		tmp = tmp->next;
 	}
 	if	(i < size / 2)
-		sort_by_min(stack, size);
-	else
 		sort_by_max(stack, size);
+	else
+		sort_by_min(stack, size);
 }
 
 
