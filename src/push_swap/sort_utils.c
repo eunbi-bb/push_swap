@@ -4,19 +4,19 @@ t_node	*get_min(t_node *stack, long lower_limit)
 {
 	t_node	*tmp;
 	t_node	*min;
-	int min_found;
+	int min_value;
 
 	if (!stack)
 		return (0);
-	tmp = stack;
+	tmp = stack; 
 	min = stack;
-	min_found = 2147483647;
+	min_value = 2147483647;
 	while (tmp)
 	{
-		if ((tmp->data > lower_limit) && (tmp->data < min_found))
+		if ((tmp->data <= min_value) && (tmp->data > lower_limit))
 		{
+			min_value = tmp->data;
 			min = tmp;
-			min_found = min->data;
 		}
 		tmp = tmp->next;
 	}
@@ -53,7 +53,7 @@ void	put_index(t_stack *stack)
 	{
 		min = get_min(stack->a, lowest);
 		min->index = i;
-	//printf("giving index : %d to %d\n", i, min->data);
+	printf("giving index : %d to %d\n", i, min->data);
 		lowest = min->data;
 		i++;
 	}

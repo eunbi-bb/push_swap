@@ -44,9 +44,9 @@ void	push_swap(char **argv)
 	}
 	stack->size_a = size;
 	duplication_check(stack->a);
-	//print_stack(stack->a);
+	print_stack(stack->a);
 	sort(stack, size);
-	//print_stack(stack->a);
+	print_stack(stack->a);
 	free(stack->a);
 	free(stack->b);
 }

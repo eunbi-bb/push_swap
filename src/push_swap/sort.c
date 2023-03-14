@@ -1,4 +1,5 @@
 #include "../../push_swap.h"
+
 /*1. 1 3 2
   2. 2 1 3
   3. 2 3 1
@@ -34,12 +35,12 @@ void	sort_aaa(t_stack *stack)
 
 static void	sort_by_min(t_stack *stack, int size)
 {
-	t_node *tmp;
+	unsigned int min_index;
 
 	while (size > 3)
 	{
-		tmp = get_min(stack->a, -2147483649);
-		while (stack->a->data > tmp->data)
+		min_index = get_min(stack->a, -2147483649)->index;
+		while (stack->a->index > min_index)
 			ra(stack);
 		pb(stack);
 		size--;
@@ -58,6 +59,8 @@ static void	sort_by_max(t_stack *stack, int size)
 		pb(stack);
 		size--;
 	}
+	ft_printf("max: ");
+	print_stack(stack->b);
 	sort_aaa(stack);
 	while (stack->b)
 	{
@@ -84,7 +87,6 @@ static void	find_fastest(t_stack *stack, int size)
 		sort_by_min(stack, size);
 }
 
-
 void	sort(t_stack *stack, int size)
 {
 	if (!sort_check(stack))
@@ -92,10 +94,10 @@ void	sort(t_stack *stack, int size)
 		put_index(stack);
 		if (size <= 5)
 		{
-			if (size == 2)
-				sa(stack);
-			else if (size == 3)
+			if (size == 3)
 				sort_aaa(stack);
+			else if (size == 2)
+				sa(stack);
 			else
 				find_fastest(stack, size);
 		}

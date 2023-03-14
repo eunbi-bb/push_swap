@@ -63,3 +63,5 @@ t_node	*lst_front(t_node *lst);
 t_node	*lst_last(t_node *lst);
 
 void	put_index(t_stack *stack);
+
+void	print_stack(t_node *stack);
