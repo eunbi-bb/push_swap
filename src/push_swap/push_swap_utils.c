@@ -34,9 +34,9 @@ int	pusw_atoi(char *str, t_node *stack)
 	i = 0;
 	num = 0;
 	sign = 1;
-	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' || str[i] == '\v'
+	if (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' || str[i] == '\v'
 		|| str[i] == '\f' || str[i] == '\r')
-		i++;
+		error_free(stack);
 	if (str[i] == '-')
 		sign *= -1;
 	if (str[i] == '-' || str[i] == '+')
@@ -52,6 +52,7 @@ int	pusw_atoi(char *str, t_node *stack)
 		error_free(stack);
 	return (sign *num);
 }
+
 
 void	duplication_check(t_node *stack)
 {
