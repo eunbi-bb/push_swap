@@ -6,7 +6,7 @@
 /*   By: eucho <eucho@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/20 14:24:38 by eucho         #+#    #+#                 */
-/*   Updated: 2023/03/20 16:48:59 by eucho         ########   odam.nl         */
+/*   Updated: 2023/03/20 16:53:44 by eucho         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	pusw_atoi(char *str, t_node *stack)
 	num = 0;
 	sign = 1;
 	if (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' || str[i] == '\v'
-		|| str[i] == '\f' || str[i] == '\r')
+		|| str[i] == '\f' || str[i] == '\r' || str[i] == '\0')
 		error_free(stack);
 	if (str[i] == '-')
 		sign *= -1;
