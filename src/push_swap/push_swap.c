@@ -29,14 +29,17 @@ void	push_swap(char **argv)
 	t_stack	*stack;
 	t_node	*current;
 	int		i;
+	int		size;
 	int		tmp;
 
 	i = 0;
 	stack = malloc(sizeof(t_stack));
-	stack->size_a = pusw_strlen(argv);
+	size = pusw_strlen(argv);
 	if (!stack)
 		return ;
-	while (i < stack->size_a)
+	stack->a = NULL;
+	stack->b = NULL;
+	while (i < size)
 	{
 		tmp = pusw_atoi(argv[i], stack->a);
 		if (!stack->a)
@@ -51,6 +54,7 @@ void	push_swap(char **argv)
 		}
 		i++;
 	}
+	stack->size_a = size;
 	duplication_check(stack->a);
 	//print_stack(stack->a);
 	sort(stack);
@@ -59,14 +63,14 @@ void	push_swap(char **argv)
 	free(stack);
 }
 
-// void	leak_check(void)
-// {
-// 	system("valgrind --leak-check=full ./push_swap");
-// }
+void	leak_check(void)
+{
+	system("leaks -q push_swap");
+}
 
 int	main(int argc, char **argv)
 {
-	//atexit(leak_check);
+	atexit(leak_check);
 	if (argc > 1)
 	{
 		argv++;
