@@ -6,7 +6,7 @@
 /*   By: eucho <eucho@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/20 14:25:21 by eucho         #+#    #+#                 */
-/*   Updated: 2023/03/20 14:26:57 by eucho         ########   odam.nl         */
+/*   Updated: 2023/03/20 18:42:45 by eucho         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void			rra(t_stack *stack);
 void			rrb(t_stack *stack);
 void			rrr(t_stack *stack);
 //push_swap.c
-void			push_swap(char **argv);
+void			push_swap(t_stack *stack, char **argv, int size);
 t_node			*lst_front(t_node *lst);
 t_node			*lst_last(t_node *lst);
 //push_swap_utils.c
