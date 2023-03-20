@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   radix.c                                            :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: eucho <eucho@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2023/03/20 14:24:24 by eucho         #+#    #+#                 */
+/*   Updated: 2023/03/20 14:37:25 by eucho         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../push_swap.h"
 
 void	radix(t_stack *stack, int size)
@@ -6,7 +18,7 @@ void	radix(t_stack *stack, int size)
 	unsigned int	bit;
 	t_node			*current;
 
-	bit	= 0;
+	bit = 0;
 	while (bit < 32)
 	{
 		i = 0;

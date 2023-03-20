@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   push_swap.c                                        :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: eucho <eucho@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2023/03/20 14:24:30 by eucho         #+#    #+#                 */
+/*   Updated: 2023/03/20 16:26:57 by eucho         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../push_swap.h"
 
 t_node	*lst_last(t_node *lst)
@@ -27,18 +39,18 @@ t_node	*lst_front(t_node *lst)
 void	push_swap(char **argv)
 {
 	t_stack	*stack;
-	t_node	*current;
-	int		i;
 	int		size;
+	int		i;
 	int		tmp;
+	t_node	*current;
 
-	i = 0;
-	stack = malloc(sizeof(t_stack));
 	size = pusw_strlen(argv);
+	stack = malloc(sizeof(t_stack));
 	if (!stack)
 		return ;
 	stack->a = NULL;
 	stack->b = NULL;
+	i = 0;
 	while (i < size)
 	{
 		tmp = pusw_atoi(argv[i], stack->a);
@@ -56,21 +68,18 @@ void	push_swap(char **argv)
 	}
 	stack->size_a = size;
 	duplication_check(stack->a);
-	//print_stack(stack->a);
 	sort(stack);
-	//print_stack(stack->a);
-	//print_stack(stack->b);
 	free(stack);
 }
 
-void	leak_check(void)
-{
-	system("leaks -q push_swap");
-}
+// void	leak_check(void)
+// {
+// 	system("leaks -q push_swap");
+// }
 
 int	main(int argc, char **argv)
 {
-	atexit(leak_check);
+	//atexit(leak_check);
 	if (argc > 1)
 	{
 		argv++;
@@ -79,5 +88,5 @@ int	main(int argc, char **argv)
 		push_swap(argv);
 		return (0);
 	}
-	return(0);
+	return (0);
 }

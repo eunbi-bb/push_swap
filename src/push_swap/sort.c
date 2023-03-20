@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   sort.c                                             :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: eucho <eucho@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2023/03/20 14:24:07 by eucho         #+#    #+#                 */
+/*   Updated: 2023/03/20 14:37:58 by eucho         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../push_swap.h"
 
 /*1. 1 3 2
@@ -77,7 +89,7 @@ void	find_fastest(t_stack *stack)
 		i++;
 		tmp = tmp->next;
 	}
-	if	(i < stack->size_a / 2)
+	if (i < (stack->size_a / 2))
 		sort_by_max(stack);
 	else
 		sort_by_min(stack);

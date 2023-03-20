@@ -1,14 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   sort_utils.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: eucho <eucho@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2023/03/20 14:24:17 by eucho         #+#    #+#                 */
+/*   Updated: 2023/03/20 14:39:17 by eucho         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../push_swap.h"
 
 t_node	*get_min(t_node *stack, long lower_limit)
 {
 	t_node	*tmp;
 	t_node	*min;
-	int min_value;
+	int		min_value;
 
 	if (!stack)
 		return (0);
-	tmp = stack; 
+	tmp = stack;
 	min = stack;
 	min_value = INT_MAX;
 	while (tmp)
@@ -66,7 +78,7 @@ int	sort_check(t_stack *stack)
 	int		prev_value;
 
 	if (!stack)
-		return(1);
+		return (1);
 	tmp = stack->a;
 	prev_value = tmp->data;
 	while (tmp)
@@ -76,5 +88,5 @@ int	sort_check(t_stack *stack)
 		prev_value = tmp->data;
 		tmp = tmp->next;
 	}
-	return(1);
+	return (1);
 }

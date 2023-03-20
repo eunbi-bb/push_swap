@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   push_swap_utils.c                                  :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: eucho <eucho@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2023/03/20 14:24:38 by eucho         #+#    #+#                 */
+/*   Updated: 2023/03/20 16:37:11 by eucho         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../push_swap.h"
 
 void	error_free(t_node *stack)
@@ -6,7 +18,7 @@ void	error_free(t_node *stack)
 	free(stack);
 	exit (1);
 }
-/*return the number of arguments*/
+
 int	pusw_strlen(char **argv)
 {
 	int	i;
@@ -50,30 +62,29 @@ int	pusw_atoi(char *str, t_node *stack)
 	}
 	if ((num > INT32_MAX && sign == -1) || (num > (INT32_MAX - 1) && sign == 1))
 		error_free(stack);
-	return (sign *num);
+	return (sign * num);
 }
-
 
 void	duplication_check(t_node *stack)
 {
-	t_node *current;
-	t_node *runner;
+	t_node	*current;
+	t_node	*runner;
 
 	if (stack == NULL)
 		return ;
 	current = stack;
-    while (current != NULL)
+	while (current != NULL)
 	{
-        runner = current->next;
-        while (runner != NULL)
+		runner = current->next;
+		while (runner != NULL)
 		{
-            if (runner->data == current->data)
+			if (runner->data == current->data)
 			{
 				error_free(stack);
-				return;
-            }
-            runner = runner->next;
-        }
-        current = current->next;
-    }
+				return ;
+			}
+			runner = runner->next;
+		}
+		current = current->next;
+	}
 }
