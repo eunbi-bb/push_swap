@@ -6,7 +6,7 @@
 /*   By: eucho <eucho@student.42.fr>                  +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/10 16:01:27 by eucho         #+#    #+#                 */
-/*   Updated: 2022/12/21 14:15:38 by eunbi         ########   odam.nl         */
+/*   Updated: 2023/03/20 18:45:23 by eucho         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int		ft_print_unsigned(unsigned int n);
 int		ft_print_hex(unsigned int num, const char format);
 int		ft_print_percent(void);
 
-void    ft_putchar(char c);
+void	ft_putchar(char c);
 
 void	ft_put_pointer(uintptr_t num);
 int		ft_pointer_len(uintptr_t num);

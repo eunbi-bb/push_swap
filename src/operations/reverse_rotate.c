@@ -6,7 +6,7 @@
 /*   By: eucho <eucho@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/01 15:19:56 by eucho         #+#    #+#                 */
-/*   Updated: 2023/03/14 09:22:38 by eunbi         ########   odam.nl         */
+/*   Updated: 2023/03/20 18:46:23 by eucho         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	rra(t_stack *stack)
 		ft_printf("rra\n");
 	}
 }
+
 /*reverse rotate b : Shift down all elements of stack b by 1.*/
 void	rrb(t_stack *stack)
 {

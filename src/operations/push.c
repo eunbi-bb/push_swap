@@ -6,7 +6,7 @@
 /*   By: eucho <eucho@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/01 15:20:02 by eucho         #+#    #+#                 */
-/*   Updated: 2023/03/14 09:20:53 by eunbi         ########   odam.nl         */
+/*   Updated: 2023/03/20 18:46:08 by eucho         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	pa(t_stack *stack)
 		stack->size_b--;
 	ft_printf("pa\n");
 }
+
 /*push b : Take the first element at the top of a
 		and put it at the top of b.*/
 void	pb(t_stack *stack)

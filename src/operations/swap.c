@@ -6,7 +6,7 @@
 /*   By: eucho <eucho@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/01 15:19:49 by eucho         #+#    #+#                 */
-/*   Updated: 2023/03/14 09:20:49 by eunbi         ########   odam.nl         */
+/*   Updated: 2023/03/20 18:47:48 by eucho         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 /*swap a : Swap the first 2 elements at the top of stack a.*/
 void	sa(t_stack *stack)
 {
-	int tmp_data;
-	int tmp_index;
+	int	tmp_data;
+	int	tmp_index;
 
 	if (stack->size_a >= 2)
 	{
@@ -29,11 +29,12 @@ void	sa(t_stack *stack)
 		ft_printf("sa\n");
 	}
 }
+
 /*swap b : Swap the first 2 elements at the top of stack b.*/
 void	sb(t_stack *stack)
 {
-	int tmp_data;
-	int tmp_index;
+	int	tmp_data;
+	int	tmp_index;
 
 	if (stack->size_b >= 2)
 	{
@@ -49,8 +50,8 @@ void	sb(t_stack *stack)
 
 void	ss(t_stack *stack)
 {
-	int tmp_data;
-	int tmp_index;
+	int	tmp_data;
+	int	tmp_index;
 
 	if (stack->size_a >= 2 && stack->size_b >= 2)
 	{
