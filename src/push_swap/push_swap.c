@@ -6,7 +6,7 @@
 /*   By: eucho <eucho@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/20 14:24:30 by eucho         #+#    #+#                 */
-/*   Updated: 2023/03/21 14:40:58 by eucho         ########   odam.nl         */
+/*   Updated: 2023/03/21 17:26:05 by eucho         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	push_swap(t_stack *stack, char **argv, int size)
 		tmp = pusw_atoi(argv[i], stack->a);
 		if (!stack->a)
 		{
-			stack->a = new_node(pusw_atoi(argv[i], stack->a), -1);
+			stack->a = new_node(tmp, -1);
 			current = stack->a;
 		}
 		else
