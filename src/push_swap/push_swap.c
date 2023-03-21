@@ -6,7 +6,7 @@
 /*   By: eucho <eucho@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/20 14:24:30 by eucho         #+#    #+#                 */
-/*   Updated: 2023/03/21 14:37:51 by eucho         ########   odam.nl         */
+/*   Updated: 2023/03/21 14:40:58 by eucho         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	free_argv(char **argv)
 {
 	int		i;
 
+	i = 0;
 	while (argv && argv[i])
 	{	
 		free(argv[i]);
@@ -76,11 +77,6 @@ void	free_argv(char **argv)
 	if (argv)
 		free(argv);
 }
-
-// void	leak_check(void)
-// {
-// 	system("leaks -q push_swap");
-// }
 
 int	main(int argc, char **argv)
 {
