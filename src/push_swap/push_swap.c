@@ -6,7 +6,7 @@
 /*   By: eucho <eucho@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/20 14:24:30 by eucho         #+#    #+#                 */
-/*   Updated: 2023/03/21 12:29:28 by eucho         ########   odam.nl         */
+/*   Updated: 2023/03/21 14:24:34 by eucho         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	push_swap(t_stack *stack, char **argv, int size)
 	stack->size_a = size;
 	duplication_check(stack->a);
 	sort(stack);
-	free(stack);
+	free_stack(stack);
 }
 
 void	leak_check(void)
@@ -71,35 +71,36 @@ void	leak_check(void)
 
 int	main(int argc, char **argv)
 {
-	char	**tmp;
 	t_stack	*stack;
 	int		size;
 	int		i;
-	
-	tmp = NULL;
+
 	atexit(leak_check);
 	if (argc > 1)
 	{
 		argv++;
 		if (argc == 2)
-			tmp = ft_split(*argv, ' ');
-		else
-			tmp = argv;
+		{
+			argv = ft_split(*argv, ' ');
+		}
 		size = pusw_strlen(argv);
 		stack = malloc(sizeof(t_stack));
 		if (!stack)
 			return (0);
 		stack->a = NULL;
 		stack->b = NULL;
-		push_swap(stack, tmp, size);
+		push_swap(stack, argv, size);
 		i = 0;
-		while(tmp[i])
-		{	
-			free(tmp[i]);
-			i++;
+		if (argc == 2)
+		{
+			while(argv && argv[i])
+			{	
+				free(argv[i]);
+				i++;
+			}
+			if (argv)
+				free(argv);
 		}
-		if (tmp)
-			free(tmp);
 	}
 	return (0);
 }
