@@ -6,7 +6,7 @@
 /*   By: eucho <eucho@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/20 14:24:46 by eucho         #+#    #+#                 */
-/*   Updated: 2023/03/21 14:35:03 by eucho         ########   odam.nl         */
+/*   Updated: 2023/03/21 17:31:32 by eucho         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,10 +108,13 @@ void	del_node(t_node **head, t_node **tail, t_node *p)
 
 void	free_stack(t_stack *stack)
 {
+	t_node	*next;
+
 	while (stack->a != NULL)
 	{
+		next = stack->a->next;
 		free(stack->a);
-		stack->a = stack->a->next;
+		stack->a = next;
 	}
 	free(stack);
 }

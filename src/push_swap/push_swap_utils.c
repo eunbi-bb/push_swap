@@ -6,7 +6,7 @@
 /*   By: eucho <eucho@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/20 14:24:38 by eucho         #+#    #+#                 */
-/*   Updated: 2023/03/21 14:53:53 by eucho         ########   odam.nl         */
+/*   Updated: 2023/03/21 18:13:57 by eucho         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ int	pusw_atoi(char *str, t_node *stack)
 		num = (str[i] - '0') + (num * 10);
 		i++;
 	}
-	if ((num - 1 > INT32_MAX && sign == -1) || (num > INT32_MAX && sign == 1))
+	if ((num - 1 > INT32_MAX && sign == -1) || (num > INT32_MAX && sign == 1)
+		|| (num < INT32_MIN))
 		error_free(stack);
 	return (sign * num);
 }
