@@ -6,7 +6,7 @@
 /*   By: eucho <eucho@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/20 14:24:30 by eucho         #+#    #+#                 */
-/*   Updated: 2023/03/20 18:43:33 by eucho         ########   odam.nl         */
+/*   Updated: 2023/03/21 12:29:28 by eucho         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,22 +71,35 @@ void	leak_check(void)
 
 int	main(int argc, char **argv)
 {
+	char	**tmp;
 	t_stack	*stack;
 	int		size;
+	int		i;
+	
+	tmp = NULL;
 	atexit(leak_check);
 	if (argc > 1)
 	{
 		argv++;
 		if (argc == 2)
-			argv = ft_split(*argv, ' ');
+			tmp = ft_split(*argv, ' ');
+		else
+			tmp = argv;
 		size = pusw_strlen(argv);
 		stack = malloc(sizeof(t_stack));
 		if (!stack)
 			return (0);
 		stack->a = NULL;
 		stack->b = NULL;
-		push_swap(stack, argv, size);
-		return (0);
+		push_swap(stack, tmp, size);
+		i = 0;
+		while(tmp[i])
+		{	
+			free(tmp[i]);
+			i++;
+		}
+		if (tmp)
+			free(tmp);
 	}
 	return (0);
 }

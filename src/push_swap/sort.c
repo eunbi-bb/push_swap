@@ -6,7 +6,7 @@
 /*   By: eucho <eucho@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/20 14:24:07 by eucho         #+#    #+#                 */
-/*   Updated: 2023/03/20 14:37:58 by eucho         ########   odam.nl         */
+/*   Updated: 2023/03/21 12:04:01 by eucho         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	find_fastest(t_stack *stack)
 void	sort(t_stack *stack)
 {
 	if (!sort_check(stack))
-	{
+	{ 
 		put_index(stack);
 		if (stack->size_a <= 5)
 		{
