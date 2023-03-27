@@ -6,7 +6,7 @@
 /*   By: eucho <eucho@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/20 14:24:38 by eucho         #+#    #+#                 */
-/*   Updated: 2023/03/21 18:20:23 by eucho         ########   odam.nl         */
+/*   Updated: 2023/03/27 15:07:00 by eucho         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	error_free(t_node *stack)
 {
-	ft_printf("Error\n");
+	write(2, "Error\n", 6);
 	free(stack);
 	exit (1);
 }
@@ -31,7 +31,7 @@ int	pusw_strlen(char **argv)
 	}
 	if (i == 0)
 	{
-		ft_printf("Error\n");
+		write(2, "Error\n", 6);
 		exit(1);
 	}
 	return (i);
