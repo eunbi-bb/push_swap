@@ -1,7 +1,11 @@
 NAME		= push_swap
 
 CC			= gcc
+ifdef DEBUG
+CFLAGS		= -Wall -Wextra -Werror -fsanitize=address -g 
+else
 CFLAGS		= -Wall -Wextra -Werror
+endif
 SRC_DIR		= src/
 OBJ_DIR		= obj/
 HEADER		= push_swap.h

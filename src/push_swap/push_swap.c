@@ -6,7 +6,7 @@
 /*   By: eucho <eucho@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/20 14:24:30 by eucho         #+#    #+#                 */
-/*   Updated: 2023/03/21 12:29:28 by eucho         ########   odam.nl         */
+/*   Updated: 2023/03/21 18:22:38 by eucho         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	push_swap(t_stack *stack, char **argv, int size)
 		tmp = pusw_atoi(argv[i], stack->a);
 		if (!stack->a)
 		{
-			stack->a = new_node(pusw_atoi(argv[i], stack->a), -1);
+			stack->a = new_node(tmp, -1);
 			current = stack->a;
 		}
 		else
@@ -61,45 +61,46 @@ void	push_swap(t_stack *stack, char **argv, int size)
 	stack->size_a = size;
 	duplication_check(stack->a);
 	sort(stack);
-	free(stack);
+	free_stack(stack);
 }
 
-void	leak_check(void)
+void	free_argv(char **argv)
 {
-	system("leaks -q push_swap");
+	int		i;
+
+	i = 0;
+	while (argv && argv[i])
+	{	
+		free(argv[i]);
+		i++;
+	}
+	if (argv)
+		free(argv);
 }
 
 int	main(int argc, char **argv)
 {
-	char	**tmp;
 	t_stack	*stack;
+	char	**tmp;
 	int		size;
-	int		i;
-	
-	tmp = NULL;
-	atexit(leak_check);
+
+	tmp = argv;
 	if (argc > 1)
 	{
-		argv++;
+		tmp++;
 		if (argc == 2)
-			tmp = ft_split(*argv, ' ');
-		else
-			tmp = argv;
-		size = pusw_strlen(argv);
+		{
+			tmp = ft_split(*tmp, ' ');
+		}
+		size = pusw_strlen(tmp);
 		stack = malloc(sizeof(t_stack));
 		if (!stack)
 			return (0);
 		stack->a = NULL;
 		stack->b = NULL;
 		push_swap(stack, tmp, size);
-		i = 0;
-		while(tmp[i])
-		{	
-			free(tmp[i]);
-			i++;
-		}
-		if (tmp)
-			free(tmp);
+		if (argc == 2)
+			free_argv(tmp);
 	}
 	return (0);
 }

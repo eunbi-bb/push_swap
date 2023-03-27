@@ -6,7 +6,7 @@
 /*   By: eucho <eucho@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/20 14:25:21 by eucho         #+#    #+#                 */
-/*   Updated: 2023/03/21 12:26:35 by eucho         ########   odam.nl         */
+/*   Updated: 2023/03/21 18:20:47 by eucho         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdlib.h>
 # include "libft/libft.h"
 # include <limits.h>
-# include <stdio.h>
 
 typedef struct s_node
 {
@@ -64,6 +63,7 @@ t_node			*new_node(int data, int index);
 void			add_before(t_node *current, t_node *new_node);
 void			add_after(t_node *before, t_node *new_node);
 void			del_node(t_node **head, t_node **tail, t_node *p);
+void			free_stack(t_stack *stack);
 //sort.c
 void			sort_aaa(t_stack *stack);
 void			sort_by_min(t_stack *stack);
