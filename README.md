@@ -23,7 +23,6 @@ Do nothing if b is empty.\
 **rrb** (reverse rotate b): Shift down all elements of stack b by 1. The last element becomes the first one.\
 **rrr** : rra and rrb at the same time.
 
-  command out
 ## Examples
 >Init a and b:
 ```
@@ -92,3 +91,13 @@ a  b
 __ __
 a  b 
 ```
+
+## Algorithm
+Radix sort with index \
+\
+***With index?*** \
+  Negative numbers are not possible to sort by Radix sort algorithm.
+  So I put index to each numbers with ***get_min()***. \
+  *get_min()* is finding the smallest number in a stack and giving index to the smallest number. \
+  Therefore the index will be from 0 to the size of the stack. Then, sort the indexes with ***Radix sort***. \
+  ***Bit operator(& 1)*** is used for the ***Radix sort***. Due to only 2 stacks are allowed to use to sort.
